@@ -4,19 +4,33 @@
 	overflow: hidden;
 	background-color: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-secundary);
 	color: var(#{$VAR-LSY-TXT-VAR-COLOR}-secundary);
-	.p-grid{
-		& > div{
-			padding: 1.2em 1em !important;
-		}
+	
+	ul{
+		padding: 0;
+		margin: 0;
+		margin-bottom: .5em;
+		height: 100%;
 	}
 	
+	.p-grid {
+		& > div{
+			padding: 1em 2em !important;
+		}
+	}
+
 	& > .p-grid{
-		&:last-of-type{
+		&:not(:first-of-type){
 			border-top: 1px solid var(#{$VAR-LSY-TXT-VAR-COLOR}-secundary);
 		}
+		&:last-of-type{
+			background-color: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary);
+		    color: var(#{$VAR-LSY-TXT-VAR-COLOR}-primary);
+			.lsy-container{
+				padding-top: .5em !important;
+				padding-bottom: .5em !important;
+			}
+		}
 	}
-	
-	
 	
 	.lsy-txt-title{
 		font-size: 1.2em;

@@ -164,6 +164,32 @@ hr {
   overflow: visible;
 }
 
+input, input:focus {
+  outline: none;
+}
+input.lsy-option-disabled, input:disabled, input[readonly] {
+  background: var(--lsy-background-disabled) !important;
+  color: var(--lsy-colordisabled) !important;
+  cursor: not-allowed;
+}
+
+a {
+  background-color: transparent;
+  outline: none !important;
+  text-decoration: none;
+  color: inherit;
+  font-style: none !important;
+  text-decoration: none !important;
+  font-family: inherit !important;
+}
+a:hover, a.lsy-option-active {
+  color: var(--lsy-background-primary);
+}
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none !important;
+}
+
 .lsy-container {
   position: relative;
   display: block;
@@ -195,11 +221,25 @@ hr {
   background-color: var(--lsy-background-secundary);
   color: var(--lsy-color-secundary);
 }
+.lsy-footer ul {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0.5em;
+  height: 100%;
+}
 .lsy-footer .p-grid > div {
-  padding: 1.2em 1em !important;
+  padding: 1em 2em !important;
+}
+.lsy-footer > .p-grid:not(:first-of-type) {
+  border-top: 1px solid var(--lsy-color-secundary);
 }
 .lsy-footer > .p-grid:last-of-type {
-  border-top: 1px solid var(--lsy-color-secundary);
+  background-color: var(--lsy-background-primary);
+  color: var(--lsy-color-primary);
+}
+.lsy-footer > .p-grid:last-of-type .lsy-container {
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
 }
 .lsy-footer .lsy-txt-title {
   font-size: 1.2em;
