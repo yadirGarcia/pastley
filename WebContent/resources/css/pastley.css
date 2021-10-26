@@ -1,2 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&family=Share+Tech+Mono");
+:root {
+  --lsy-font-size-body: 16px;
+  --lsy-font-size-primary: 1em;
+  --lsy-font-size-xs: 0.5em;
+  --lsy-font-size-sm: 1em;
+  --lsy-font-size-md: 1.5em;
+  --lsy-font-size-lg: 2.5em;
+  --lsy-font-size-xl: 5em;
+  --lsy-font-size-xxl: 7em;
+  --lsy-font-size-h1: 2.5em;
+  --lsy-font-size-h2: 2em;
+  --lsy-font-size-h3: 1.75em;
+  --lsy-font-size-h4: 1.5em;
+  --lsy-font-size-h5: 1.25em;
+  --lsy-font-size-h6: 1em;
+  --lsy-font-family-primary: Mulish, monospace, sans-serif;
+  --lsy-font-family-2: Share Tech Mono, cursive, monospace;
+  --lsy-background-primary: #FDB135;
+  --lsy-color-primary: #FFFFFF;
+  --lsy-background-body: #FFFFFF;
+  --lsy-color-body: #2E2E2E;
+  --lsy-background-disabled: #E5E5E5;
+  --lsy-color-disabled: #2E2E2E;
+  --lsy-background-hover: rgba(0,0,0,0);
+  --lsy-color-hover: rgba(0,0,0,0);
+  --lsy-background-info: #2196F3;
+  --lsy-color-info: #FFFFFF;
+  --lsy-background-danger: #F44336;
+  --lsy-color-danger: #FFFFFF;
+  --lsy-background-warning: #FFEB3B;
+  --lsy-color-warning: #2E2E2E;
+  --lsy-background-success: #4CAF50;
+  --lsy-color-success: #FFFFFF;
+  --lsy-background-fatal: #2E2E2E;
+  --lsy-color-fatal: #FFFFFF;
+}
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  font-family: var(--lsy-font-family-primary);
+  font-size: var(--lsy-font-size-body);
+  position: relative;
+  background-color: var(--lsy-background-body);
+  color: var(--lsy-color-body);
+}
+body::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--lsy-background-primary);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--lsy-background-primary);
+  border-radius: 5px;
+  border: 1px solid var(--lsy-color-primary);
+}
+body.body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+h1 {
+  font-size: var(--lsy-font-size-h1);
+}
+
+h2 {
+  font-size: var(--lsy-font-size-h2);
+}
+
+h3 {
+  font-size: var(--lsy-font-size-h3);
+}
+
+h4 {
+  font-size: var(--lsy-font-size-h4);
+}
+
+h5 {
+  font-size: var(--lsy-font-size-h5);
+}
+
+h6 {
+  font-size: var(--lsy-font-size-h6);
+  font-style: italic;
+}
 /*# sourceMappingURL=pastley.css.map */

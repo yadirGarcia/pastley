@@ -1,0 +1,43 @@
+@function getMap($map: (), $types:()){
+    @if $map != $VAR-LSY-TXT-NULL{
+        $aux: 1;
+        $key: $map;
+        @each $type in $types{
+            @if $aux != -1{
+                @if map-has-key($key, $type) {
+                    $key: map-get($key, $type);
+                    $aux: $aux + 1;
+                }@else{
+                    $aux: -1;
+                }
+            }
+        }
+        @if $aux != -1{
+            @return $key;
+        }@else{
+            @error "Unknown `#{$types}` in `#{$map}`.";
+        }
+    }@else{
+        @error "The map cannot be null.";
+    }
+    @return null;
+}
+
+@function getFontFamilyGoogle(
+    $map:(), 
+    $family: getMap($VAR-LSY-FONT, (family, option))
+){
+    $url: getMap($family, ("url"));
+    $display: getMap($family, ("display"));
+    $size: length($map);
+    $aux: $url + "?";
+    $i: 0;
+    @each $key, $value in $map {
+        $aux: $aux + getMap($value, ("alt"));
+        $i: $i + 1;
+        @if $i < $size { 
+            $aux: $aux + "&"; 
+        }
+    }
+    @return $aux;
+}

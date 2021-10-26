@@ -1,0 +1,87 @@
+$VAR-LSY-COLORS:(
+	"main":(
+		"primary":(
+			1: (#FDB135, #FFFFFF),
+			2: (#FDB135, #FFFFFF)
+		),
+		"body":(
+			1: (#FFFFFF, #2E2E2E),
+			2: (#2E2E2E, #FFFFFF)
+		),
+		"disabled":(
+			1: (#E5E5E5, #2E2E2E),
+			2: (#E5E5E5, #2E2E2E)
+		),
+		"hover":(
+			1: ("rgba(0,0,0,0)" , "rgba(0,0,0,0)"),
+			2: ("rgba(0,0,0,0)" , "rgba(0,0,0,0)")
+		),
+	),
+	"alert":(
+		"info":(
+			1: (#2196F3, #FFFFFF),
+			2: (#2962FF, #FFFFFF)
+		),
+		"danger":(
+			1: (#F44336, #FFFFFF),
+			2: (#D50000, #FFFFFF)
+		), 
+		"warning":(
+			1: (#FFEB3B, #2E2E2E),
+			2: (#FFD600, #2E2E2E)
+		),
+		"success":(
+			1: (#4CAF50, #FFFFFF),
+			2: (#00E676, #FFFFFF)
+		),
+		"fatal":(
+			1: (#2E2E2E, #FFFFFF),
+			2: (#333F48, #FFFFFF)
+		),
+	)
+);
+
+$VAR-LSY-FONT:(
+	"family":(
+		"option":(
+			"url": "https://fonts.googleapis.com/css2",
+             "display": "display=swap"
+		),
+		"iterator":(
+			"primary":(
+                "alt": "family=Mulish",
+                "value": ("Mulish", "monospace", "sans-serif")
+            ),
+			2:(
+                "alt": "family=Share+Tech+Mono",
+                "value": ("Share Tech Mono", "cursive", "monospace")
+            ),
+		)
+	),
+	"size":(
+		"body": ("16px", "16px", "16px", "15px", "14px"),
+        "primary": "1em",
+		"xs":   "0.5em",
+        "sm":   "1em",
+        "md":   "1.5em",
+        "lg":   "2.5em",
+        "xl":   "5em",
+        "xxl":  "7em",
+        "h1":   "2.5em",
+        "h2":   "2em",
+        "h3":   "1.75em",
+        "h4":   "1.5em",
+        "h5":   "1.25em",
+        "h6":   "1em"
+	),
+);
+
+$VAR-LSY-TXT-NULL: "n/a";
+$VAR-LSY-TXT-VAR: "--lsy-";
+$VAR-LSY-TXT-VAR-COLOR: $VAR-LSY-TXT-VAR+"color";
+$VAR-LSY-TXT-VAR-BACKGROUND: $VAR-LSY-TXT-VAR+"background";
+$VAR-LSY-TXT-VAR-FONT-SIZE: $VAR-LSY-TXT-VAR+"font-size";
+$VAR-LSY-TXT-VAR-FONT-FAMILY: $VAR-LSY-TXT-VAR+"font-family";
+$VAR-LSY-TXT-CHARACTER-1: "-";
+$VAR-LSY-TXT-CHARACTER-2: "__";
+$VAR-LSY-TXT-CHARACTER-3: ",";

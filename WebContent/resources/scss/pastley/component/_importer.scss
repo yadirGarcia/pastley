@@ -1,0 +1,2 @@
+$var-parent: getFontFamilyGoogle(getMap($VAR-LSY-FONT, (family, iterator)));
+@import url('#{$var-parent}');

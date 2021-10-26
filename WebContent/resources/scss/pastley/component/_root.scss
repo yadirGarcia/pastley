@@ -1,0 +1,8 @@
+:root{
+	@include mixin-iterator-root(getMap($VAR-LSY-FONT,("size")), $VAR-LSY-TXT-VAR-FONT-SIZE);
+	
+	@include mixin-iterator-root-font-family(getMap($VAR-LSY-FONT,(family, iterator)));
+	
+	@include mixin-iterator-root-bg(getMap($VAR-LSY-COLORS,(main)));
+	@include mixin-iterator-root-bg(getMap($VAR-LSY-COLORS,(alert)));
+}

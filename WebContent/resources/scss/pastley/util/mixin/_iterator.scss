@@ -1,0 +1,38 @@
+@mixin mixin-iterator-root(
+    $iterator: (), 
+    $tag: "font-size",
+    $character: $VAR-LSY-TXT-CHARACTER-1
+) {
+    @if $tag != $VAR-LSY-TXT-NULL {
+        $tag: $tag + $character;
+        @each $key, $value in $iterator {
+            #{$tag}#{$key}: #{nth($value, 1)};
+        }
+    } 
+}
+
+@mixin mixin-iterator-root-bg(
+    $iterator: (), 
+	$position: 1,
+    $character: $VAR-LSY-TXT-CHARACTER-1
+) {
+    @each $key, $value in $iterator {
+		$aux: getMap($value, ($position));
+        #{$VAR-LSY-TXT-VAR-BACKGROUND}#{$character}#{$key}: #{nth($aux, 1)};
+		#{$VAR-LSY-TXT-VAR-COLOR}#{$character}#{$key}: #{nth($aux, 2)};
+    }
+}
+
+@mixin mixin-iterator-root-font-family(
+    $iterrator: (), 
+    $tag: $VAR-LSY-TXT-VAR-FONT-FAMILY, 
+    $children: ("value"),
+    $character: $VAR-LSY-TXT-CHARACTER-1
+) {
+    @if $tag != $VAR-LSY-TXT-NULL {
+        $tag: $tag + $character;
+        @each $key, $value in $iterrator {
+            #{$tag}#{$key}: #{getMap($value, $children)};
+        }
+    } 
+}
