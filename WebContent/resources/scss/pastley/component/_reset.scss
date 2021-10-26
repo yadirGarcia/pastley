@@ -35,3 +35,62 @@ $var-parent-i: 6;
       }
    }
 }
+
+h1, h2, h3, h4, h5, h6 {
+   margin-top: 0;
+   margin-bottom: 1em;
+}
+
+p {
+   margin-top: 0;
+   margin-bottom: var(#{$VAR-LSY-TXT-VAR-FONT-SIZE}-primary);
+   color: inherit;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+   display: block;
+}
+
+summary {
+   display: list-item;
+   cursor: pointer;
+}
+
+ol,
+ul {
+   padding-left: calc(var(#{$VAR-LSY-TXT-VAR-FONT-SIZE}-primary) * .5);
+   list-style: none;
+}
+
+ol,
+ul,
+dl {
+   margin-top: 0;
+   margin-bottom: var(#{$VAR-LSY-TXT-VAR-FONT-SIZE}-primary);
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+   margin-bottom: 0;
+}
+
+img {
+   max-width: 100%;
+   margin: auto;
+   display: block;
+   border-style: none;
+   outline: none;
+}
+
+img,
+svg {
+   vertical-align: middle;
+}
+
+hr {
+   box-sizing: content-box; 
+   height: 0; 
+   overflow: visible; 
+}

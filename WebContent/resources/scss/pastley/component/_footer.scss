@@ -1,0 +1,25 @@
+.lsy-footer{
+	position: relative;
+	max-width: 100%;
+	overflow: hidden;
+	background-color: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-secundary);
+	color: var(#{$VAR-LSY-TXT-VAR-COLOR}-secundary);
+	.p-grid{
+		& > div{
+			padding: 1.2em 1em !important;
+		}
+	}
+	
+	& > .p-grid{
+		&:last-of-type{
+			border-top: 1px solid var(#{$VAR-LSY-TXT-VAR-COLOR}-secundary);
+		}
+	}
+	
+	
+	
+	.lsy-txt-title{
+		font-size: 1.2em;
+		margin: 1em auto;
+	}
+}

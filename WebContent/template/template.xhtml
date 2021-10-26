@@ -14,7 +14,17 @@
 	<ui:insert name="tmp-css" />
 </h:head>
 <h:body>
+
+	<ui:insert name="tmp-header">
+		<ui:include src="home/header.xhtml" />
+	</ui:insert>
+
 	<ui:insert name="tmp-section" />
+
+	<ui:insert name="tmp-footer">
+		<ui:include src="home/footer.xhtml" />
+	</ui:insert>
+
 	<ui:insert name="tmp-js" />
 </h:body>
 </html>

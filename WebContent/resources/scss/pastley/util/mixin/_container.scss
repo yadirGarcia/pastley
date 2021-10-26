@@ -1,0 +1,22 @@
+@mixin mixin-container(
+    $max-width: 1400px,
+    $overflow: visible,
+    $width: 100%,
+    $height: auto,
+    $font-size: var(#{$VAR-LSY-TXT-VAR-FONT-SIZE}-primary),
+    $isScroll: false
+) {	
+    position: relative;
+	display: block;
+    width: $width;
+    height: $height;
+    max-width: $max-width;
+    margin: 0 auto;
+    color: inherit;
+    background-color: inherit;
+    font-size: $font-size;
+    overflow: $overflow;
+    @if $isScroll {
+        @include mixin-scroll();
+    }
+}

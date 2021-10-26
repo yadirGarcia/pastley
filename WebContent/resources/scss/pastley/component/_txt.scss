@@ -1,0 +1,3 @@
+.lsy-txt-title{
+	@include mixin-text(var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary));
+}

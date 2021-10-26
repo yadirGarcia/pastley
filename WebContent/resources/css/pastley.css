@@ -18,6 +18,8 @@
   --lsy-font-family-2: Share Tech Mono, cursive, monospace;
   --lsy-background-primary: #FDB135;
   --lsy-color-primary: #FFFFFF;
+  --lsy-background-secundary: #2E2E2E;
+  --lsy-color-secundary: #FFFFFF;
   --lsy-background-body: #FFFFFF;
   --lsy-color-body: #2E2E2E;
   --lsy-background-disabled: #E5E5E5;
@@ -100,5 +102,107 @@ h5 {
 h6 {
   font-size: var(--lsy-font-size-h6);
   font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--lsy-font-size-primary);
+  color: inherit;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+  display: block;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+ol,
+ul {
+  padding-left: calc(var(--lsy-font-size-primary) * .5);
+  list-style: none;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: var(--lsy-font-size-primary);
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+  margin: auto;
+  display: block;
+  border-style: none;
+  outline: none;
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.lsy-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: inherit;
+  background-color: inherit;
+  font-size: var(--lsy-font-size-primary);
+  overflow: visible;
+}
+
+.lsy-txt-title {
+  display: block;
+  width: 100%;
+  color: var(--lsy-background-primary);
+  text-align: center;
+  height: auto;
+  text-transform: uppercase;
+  font-family: inherit;
+  overflow: visible;
+}
+
+.lsy-footer {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  background-color: var(--lsy-background-secundary);
+  color: var(--lsy-color-secundary);
+}
+.lsy-footer .p-grid > div {
+  padding: 1.2em 1em !important;
+}
+.lsy-footer > .p-grid:last-of-type {
+  border-top: 1px solid var(--lsy-color-secundary);
+}
+.lsy-footer .lsy-txt-title {
+  font-size: 1.2em;
+  margin: 1em auto;
 }
 /*# sourceMappingURL=pastley.css.map */
