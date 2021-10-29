@@ -19,12 +19,20 @@ public class MenuI<A, B> implements Serializable {
 
 	public void fill() {
 		this.fillOptions();
+		this.fillLinks();
 	}
 
 	public void fillOptions() {
 		this.options = new ArrayList<Item<String>>();
 		add(new Item<String>("btn-bars", "fas fa-bars", true), this.options);
 		add(new Item<String>("btn-close", "fas fa-times", true), this.options);
+	}
+
+	public void fillLinks() {
+		this.links = new ArrayList<Item<String>>();
+		add(new Item<String>("Contacto", "contact?faces-redirect=true", null), this.links);
+		add(new Item<String>("Carrito", "cart?faces-redirect=true", null), this.links);
+		add(new Item<String>("Iniciar Sesión", "login?faces-redirect=true", "pi pi-user"), this.links);
 	}
 
 	public <C> void add(Item<C> item, List<Item<C>> list) {

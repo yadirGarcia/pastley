@@ -31,13 +31,13 @@
 
 			<h:panelGroup layout="block" styleClass="enlaces">
 				<ui:insert name="tmp-header-nav-link" />
-				<p:commandLink action="contact?faces-redirect=true" value="Contacto" />
-				<p:commandLink action="order?faces-redirect=true" value="Pedido" />
-				<p:commandLink action="cart?faces-redirect=true" value="Carrito" />
-				<p:commandLink action="login?faces-redirect=true"
-					value="Iniciar Sesión">
-					<i class="pi pi-user sofia-button-icon"></i>
-				</p:commandLink>
+				<ui:repeat var="a" value="#{menu.menuI.links}">
+					<p:commandLink action="#{a.path}"
+						value="#{a.entity}">
+						<i class="#{a.icon}"></i>
+					</p:commandLink>
+				</ui:repeat>
+
 			</h:panelGroup>
 
 			<h:panelGroup layout="block" styleClass="contenedor contenedor-grid">

@@ -13,6 +13,10 @@ public class Item<A> extends Component implements Serializable{
 	public Item() {
 	}
 	
+	public Item(A entity) {
+		this(null, null, entity, null, null);
+	}
+	
 	public Item(A entity, String path, String icon) {
 		this(null, null, entity, path, icon);
 	}
