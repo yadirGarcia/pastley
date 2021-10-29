@@ -1,8 +1,8 @@
-package com.pastley.model;
+package com.pastley.component;
 
 import java.io.Serializable;
 
-public class Navbar<A> implements Serializable{
+public class Item<A> implements Serializable{
 
 
 	private static final long serialVersionUID = 1L;
@@ -11,7 +11,7 @@ public class Navbar<A> implements Serializable{
 	private String path;
 	private String icon;
 	
-	public Navbar() {
+	public Item() {
 	}
 
 	public A getEntity() {
