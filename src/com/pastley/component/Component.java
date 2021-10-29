@@ -6,10 +6,10 @@ public class Component implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String id;
-	private String styleClass;
-	private String style;
-	private String icon;
+	protected String id;
+	protected String styleClass;
+	protected String style;
+	protected String icon;
 
 	public Component() {
 		this(null, null, null, null);

@@ -2,16 +2,15 @@ package com.pastley.model;
 
 import java.io.Serializable;
 
-public class Category implements Serializable {
+public class Product implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+	
 	private Long id;
-	private Long idProduct;
 	private String name;
 	private String photo;
 
-	public Category() {
+	public Product() {
 	}
 
 	public Long getId() {
@@ -20,14 +19,6 @@ public class Category implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getIdProduct() {
-		return idProduct;
-	}
-
-	public void setIdProduct(Long idProduct) {
-		this.idProduct = idProduct;
 	}
 
 	public String getName() {

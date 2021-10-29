@@ -1,6 +1,7 @@
 package com.pastley.component;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MenuI<A, B> implements Serializable {
@@ -14,6 +15,22 @@ public class MenuI<A, B> implements Serializable {
 	private List<Item<String>> levelIII;
 
 	public MenuI() {
+	}
+
+	public void fill() {
+		this.fillOptions();
+	}
+
+	public void fillOptions() {
+		this.options = new ArrayList<Item<String>>();
+		add(new Item<String>("btn-bars", "fas fa-bars", true), this.options);
+		add(new Item<String>("btn-close", "fas fa-times", true), this.options);
+	}
+
+	public <C> void add(Item<C> item, List<Item<C>> list) {
+		if (item != null && list != null) {
+			list.add(item);
+		}
 	}
 
 	public List<Item<String>> getOptions() {
