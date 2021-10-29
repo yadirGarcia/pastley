@@ -2,14 +2,13 @@ package com.pastley.component;
 
 import java.io.Serializable;
 
-public class Item<A> implements Serializable{
+public class Item<A> extends Component implements Serializable{
 
 
 	private static final long serialVersionUID = 1L;
 	
 	private A entity;
 	private String path;
-	private String icon;
 	
 	public Item() {
 	}
@@ -28,14 +27,6 @@ public class Item<A> implements Serializable{
 
 	public void setPath(String path) {
 		this.path = path;
-	}
-
-	public String getIcon() {
-		return icon;
-	}
-
-	public void setIcon(String icon) {
-		this.icon = icon;
 	}
 
 	public static long getSerialversionuid() {
