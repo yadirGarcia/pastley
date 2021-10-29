@@ -30,16 +30,17 @@ public class MenuBean implements Serializable {
 	public void initMenuI() {
 		this.menuI = new MenuI<Category, Product>();
 		this.menuI.fill();
-		consultMenuIByCategories();
+		this.consultMenuIByCategories();
 	}
 
 	public void consultMenuIByCategories() {
+		if(this.menuI == null) return;
 		this.menuI.setLevel(new ArrayList<Item<Category>>());
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 2; i++) {
 			Category c = new Category();
 			c.setId(i + 1L);
 			c.setName("Categorie " + c.getId());
-			this.menuI.getLevel().add(new Item<Category>(c));
+			this.menuI.getLevel().add(new Item<Category>(c, null, "fas fa-angle-right"));
 		}
 	}
 

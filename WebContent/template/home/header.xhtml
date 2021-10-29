@@ -32,12 +32,10 @@
 			<h:panelGroup layout="block" styleClass="enlaces">
 				<ui:insert name="tmp-header-nav-link" />
 				<ui:repeat var="a" value="#{menu.menuI.links}">
-					<p:commandLink action="#{a.path}"
-						value="#{a.entity}">
+					<p:commandLink action="#{a.path}" value="#{a.entity}">
 						<i class="#{a.icon}"></i>
 					</p:commandLink>
 				</ui:repeat>
-
 			</h:panelGroup>
 
 			<h:panelGroup layout="block" styleClass="contenedor contenedor-grid">
@@ -47,6 +45,12 @@
 							<i class="fas fa-arrow-left"></i> Regresar
 						</button>
 						<h3 class="subtitulo">Categorias</h3>
+						<ui:repeat var="a" value="#{menu.menuI.level}">
+							<h:commandLink data-categoria="#{a.entity.name}">
+								<h:outputText value="#{a.entity.name}"></h:outputText>
+								<i class="#{a.icon}"></i>
+							</h:commandLink>
+						</ui:repeat>
 					</h:panelGroup>
 				</h:panelGroup>
 			</h:panelGroup>
