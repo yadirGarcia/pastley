@@ -32,9 +32,9 @@ public class Footer implements Serializable {
 	
 	public void fillSocial() {
 		this.social = new ArrayList<Item<String>>();
-		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "pi pi-user"), this.social);
-		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "pi pi-user"), this.social);
-		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "pi pi-user"), this.social);
+		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "pi pi-facebook"), this.social);
+		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "pi pi-twitter"), this.social);
+		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "pi pi-send"), this.social);
 	}
 
 	public List<Item<Category>> getCategories() {
