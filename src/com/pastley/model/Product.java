@@ -12,6 +12,16 @@ public class Product implements Serializable{
 
 	public Product() {
 	}
+	
+	public Product(String name, String photo) {
+		this(0L, name, photo);
+	}
+
+	public Product(Long id, String name, String photo) {
+		this.id = id;
+		this.name = name;
+		this.photo = photo;
+	}
 
 	public Long getId() {
 		return id;

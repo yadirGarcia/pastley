@@ -12,6 +12,22 @@ public class Category implements Serializable {
 	private String photo;
 
 	public Category() {
+		this(0L, 0L, null, null);
+	}
+	
+	public Category(Long id, String name) {
+		this(id, 0L, name, null);
+	}
+
+	public Category(Long id, String name, String photo) {
+		this(id, 0L, name, photo);
+	}
+
+	public Category(Long id, Long idProduct, String name, String photo) {
+		this.id = id;
+		this.idProduct = idProduct;
+		this.name = name;
+		this.photo = photo;
 	}
 
 	public Long getId() {

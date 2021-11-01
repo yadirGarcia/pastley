@@ -13,8 +13,7 @@ public class MenuI<A, B> implements Serializable {
 	private List<Item<String>> options;
 	private List<Item<String>> links;
 	private List<Item<A>> level;
-	private List<Item<B>> levelII;
-	private List<Item<String>> levelIII;
+	private List<List<Item<B>>> levelII;
 
 	public MenuI() {
 		this.init();
@@ -24,8 +23,7 @@ public class MenuI<A, B> implements Serializable {
 		this.options = new ArrayList<Item<String>>();
 		this.links = new ArrayList<Item<String>>();
 		this.level = new ArrayList<Item<A>>();
-		this.levelII = new ArrayList<Item<B>>();
-		this.levelIII = new ArrayList<Item<String>>();
+		this.levelII = new ArrayList<List<Item<B>>>();
 	}
 
 	public void fill() {
@@ -64,20 +62,12 @@ public class MenuI<A, B> implements Serializable {
 		this.level = level;
 	}
 
-	public List<Item<B>> getLevelII() {
+	public List<List<Item<B>>> getLevelII() {
 		return levelII;
 	}
 
-	public void setLevelII(List<Item<B>> levelII) {
+	public void setLevelII(List<List<Item<B>>> levelII) {
 		this.levelII = levelII;
-	}
-
-	public List<Item<String>> getLevelIII() {
-		return levelIII;
-	}
-
-	public void setLevelIII(List<Item<String>> levelIII) {
-		this.levelIII = levelIII;
 	}
 
 	public void setLinks(List<Item<String>> links) {
