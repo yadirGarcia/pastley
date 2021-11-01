@@ -1,3 +1,8 @@
 .lsy-txt-title{
 	@include mixin-text(var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary));
 }
+
+.lsy-txt-subtitle{
+	@include mixin-text(var(#{$VAR-LSY-TXT-VAR-COLOR}-body));
+	text-transform: capitalize;
+}

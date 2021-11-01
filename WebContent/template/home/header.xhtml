@@ -49,21 +49,22 @@
 						</button>
 						<h3 class="lsy-subtitle">Categorias</h3>
 						<ui:repeat var="a" value="#{menu.menuI.level}">
-							<h:commandLink data-categoria="#{a.entity.name}">
-								<h:outputText value="#{a.entity.name}"></h:outputText>
-								<i class="#{a.icon}"></i>
-							</h:commandLink>
+							<a data-categoria="#{a.entity.name}"> <h:outputText
+									value="#{a.entity.name}"></h:outputText> <i class="#{a.icon}"></i>
+							</a>
 						</ui:repeat>
 					</h:panelGroup>
 					<h:panelGroup layout="block"
 						styleClass="lsy-menu-home-container__grid-products">
 						<ui:repeat var="a" value="#{menu.menuI.level}"
 							varStatus="varStatu">
-							<h:panelGroup layout="block"
-								styleClass="lsy-menu-home-container__grid-products-product"
+							<div class="lsy-menu-home-container__grid-products-product"
 								data-categoria="#{a.entity.name}">
 								<h:panelGroup layout="block"
 									styleClass="lsy-menu-home-container__grid-products-product-link">
+									<button class="lsy-btn-before">
+										<i class="fas fa-arrow-left"></i> Regresar
+									</button>
 									<h3 class="subtitulo">
 										<h:outputText value="#{a.entity.name}" />
 									</h3>
@@ -72,12 +73,14 @@
 										<h:commandLink value="#{b.entity.name}" />
 									</ui:repeat>
 								</h:panelGroup>
-								<h:panelGroup layout="block" styleClass="lsy-menu-home-container__grid-products-product-banner">
+								<h:panelGroup layout="block"
+									styleClass="lsy-menu-home-container__grid-products-product-banner">
 									<p:commandLink>
 										<p:graphicImage library="img" name="header/product.jpg" />
 									</p:commandLink>
 								</h:panelGroup>
-								<h:panelGroup layout="block" styleClass="lsy-menu-home-container__grid-products-product-galery">
+								<h:panelGroup layout="block"
+									styleClass="lsy-menu-home-container__grid-products-product-galery">
 									<ui:repeat var="b"
 										value="#{menu.menuI.levelII.get(varStatu.index)}">
 										<p:commandLink>
@@ -85,7 +88,7 @@
 										</p:commandLink>
 									</ui:repeat>
 								</h:panelGroup>
-							</h:panelGroup>
+							</div>
 						</ui:repeat>
 					</h:panelGroup>
 				</h:panelGroup>

@@ -214,6 +214,18 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   overflow: visible;
 }
 
+.lsy-txt-subtitle {
+  display: block;
+  width: 100%;
+  color: var(--lsy-color-body);
+  text-align: center;
+  height: auto;
+  text-transform: uppercase;
+  font-family: inherit;
+  overflow: visible;
+  text-transform: capitalize;
+}
+
 .lsy-menu-home {
   background-color: var(--lsy-background-primary);
   color: var(--lsy-color-primary);
@@ -328,7 +340,7 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   border-right: 5px solid transparent;
   border-bottom: 5px solid currentColor;
   position: absolute;
-  top: -5px;
+  top: 0px;
   left: 65px;
 }
 .lsy-menu-home-container__grid > div {
