@@ -33,7 +33,7 @@
 					<h1 class="lsy-txt-title p-text-lg-left p-text-center">Servicios</h1>
 					<ul>
 						<ui:repeat var="a" value="#{home.footer.services}">
-							<li><p:commandLink styleClass="lsy-link">
+							<li><p:commandLink styleClass="lsy-link" title="#{a.title}">
 									<i class="#{a.icon}"></i>
 									<h:outputText value="#{a.entity}" />
 								</p:commandLink></li>
@@ -52,9 +52,8 @@
 					styleClass="lsy-container p-md-6 p-col-12">
 					<ul class="p-d-flex p-jc-lg-end p-jc-between p-ai-center">
 						<ui:repeat var="a" value="#{home.footer.social}">
-							<li>
-								<p:commandButton icon="#{a.icon}" styleClass="lsy-link" />
-							</li>
+							<li><p:commandButton icon="#{a.icon}" styleClass="lsy-link"
+									title="#{a.title}" /></li>
 						</ui:repeat>
 					</ul>
 				</h:panelGroup>

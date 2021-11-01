@@ -34,7 +34,8 @@ public class MenuBean implements Serializable {
 	}
 
 	public void consultMenuIByCategories() {
-		if(this.menuI == null) return;
+		if (this.menuI == null)
+			return;
 		this.menuI.setLevel(new ArrayList<Item<Category>>());
 		for (int i = 0; i < 2; i++) {
 			Category c = new Category();

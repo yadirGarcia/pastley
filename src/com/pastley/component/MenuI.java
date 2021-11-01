@@ -17,6 +17,15 @@ public class MenuI<A, B> implements Serializable {
 	private List<Item<String>> levelIII;
 
 	public MenuI() {
+		this.init();
+	}
+	
+	public void init() {
+		this.options = new ArrayList<Item<String>>();
+		this.links = new ArrayList<Item<String>>();
+		this.level = new ArrayList<Item<A>>();
+		this.levelII = new ArrayList<Item<B>>();
+		this.levelIII = new ArrayList<Item<String>>();
 	}
 
 	public void fill() {
@@ -25,13 +34,11 @@ public class MenuI<A, B> implements Serializable {
 	}
 
 	public void fillOptions() {
-		this.options = new ArrayList<Item<String>>();
 		Pastley.addItem(new Item<String>("btn-bars", "fas fa-bars", true), this.options);
 		Pastley.addItem(new Item<String>("btn-close", "fas fa-times", true), this.options);
 	}
 
 	public void fillLinks() {
-		this.links = new ArrayList<Item<String>>();
 		Pastley.addItem(new Item<String>("Contacto", "contact?faces-redirect=true", null), this.links);
 		Pastley.addItem(new Item<String>("Carrito", "cart?faces-redirect=true", null), this.links);
 		Pastley.addItem(new Item<String>("Iniciar Sesión", "login?faces-redirect=true", "pi pi-user"), this.links);
