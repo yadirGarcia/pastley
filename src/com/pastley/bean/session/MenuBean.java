@@ -1,8 +1,8 @@
 package com.pastley.bean.session;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -20,9 +20,9 @@ public class MenuBean implements Serializable {
 	private MenuI<Category, Product> menuI;
 
 	public MenuBean() {
-		this.init();
 	}
 
+	@PostConstruct
 	public void init() {
 		this.initMenuI();
 	}
@@ -36,8 +36,7 @@ public class MenuBean implements Serializable {
 	public void consultMenuIByCategories() {
 		if (this.menuI == null)
 			return;
-		this.menuI.setLevel(new ArrayList<Item<Category>>());
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 10; i++) {
 			Category c = new Category();
 			c.setId(i + 1L);
 			c.setName("Categorie " + c.getId());

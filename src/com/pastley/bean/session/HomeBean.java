@@ -1,15 +1,13 @@
 package com.pastley.bean.session;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import com.pastley.component.Footer;
-import com.pastley.component.Item;
-import com.pastley.model.Category;
 
 @ManagedBean(name = "home")
 @SessionScoped
@@ -23,9 +21,9 @@ public class HomeBean implements Serializable {
 	private MenuBean menuBean;
 
 	public HomeBean() {
-		this.init();
 	}
 
+	@PostConstruct
 	public void init() {
 		this.initFooter();
 	}
@@ -33,9 +31,9 @@ public class HomeBean implements Serializable {
 	public void initFooter() {
 		this.footer = new Footer();
 		this.footer.fill();
-		this.footer.setCategories(
-				(this.menuBean != null && this.menuBean.getMenuI() != null) ? this.menuBean.getMenuI().getLevel()
-						: new ArrayList<Item<Category>>());
+		this.footer.setCategories((this.menuBean != null || this.menuBean.getMenuI() != null
+				|| this.menuBean.getMenuI().getLevel() != null) ? this.menuBean.getMenuI().getLevel()
+						: this.footer.getCategories());
 	}
 
 	public Footer getFooter() {
