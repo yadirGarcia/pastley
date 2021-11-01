@@ -26,8 +26,8 @@ public class Footer implements Serializable {
 	public void fillServicies() {
 		this.services = new ArrayList<Item<String>>();
 		Pastley.addItem(new Item<String>("Iniciar Sesión", "login?faces-redirect=true", "pi pi-user"), this.services);
-		Pastley.addItem(new Item<String>("Contacto", "contact?faces-redirect=true", null), this.services);
-		Pastley.addItem(new Item<String>("Carrito", "cart?faces-redirect=true", null), this.services);
+		Pastley.addItem(new Item<String>("Contacto", "contact?faces-redirect=true", "pi pi-user"), this.services);
+		Pastley.addItem(new Item<String>("Carrito", "cart?faces-redirect=true", "pi pi-user"), this.services);
 	}
 	
 	public void fillSocial() {
