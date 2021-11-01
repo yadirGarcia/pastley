@@ -52,6 +52,35 @@
 							</h:commandLink>
 						</ui:repeat>
 					</h:panelGroup>
+					<h:panelGroup layout="block" styleClass="container">
+						<ui:repeat var="a" value="#{menu.menuI.level}"
+							varStatus="varStatu">
+							<h:panelGroup layout="block" data-categoria="#{a.entity.name}">
+								<h:panelGroup layout="block">
+									<h3 class="subtitulo">
+										<h:outputText value="#{a.entity.name}" />
+									</h3>
+									<ui:repeat var="b"
+										value="#{menu.menuI.levelII.get(varStatu.index)}">
+										<h:commandLink value="#{b.entity.name}" />
+									</ui:repeat>
+								</h:panelGroup>
+								<h:panelGroup layout="block">
+									<p:commandLink>
+										<p:graphicImage library="img" name="header/product.jpg" />
+									</p:commandLink>
+								</h:panelGroup>
+								<h:panelGroup layout="block">
+									<ui:repeat var="b"
+										value="#{menu.menuI.levelII.get(varStatu.index)}">
+										<p:commandLink>
+											<p:graphicImage library="img" name="header/#{b.entity.photo}" />
+										</p:commandLink>
+									</ui:repeat>
+								</h:panelGroup>
+							</h:panelGroup>
+						</ui:repeat>
+					</h:panelGroup>
 				</h:panelGroup>
 			</h:panelGroup>
 		</nav>
