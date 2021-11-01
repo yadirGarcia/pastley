@@ -17,7 +17,7 @@ public class Footer implements Serializable {
 
 	public Footer() {
 	}
-	
+
 	public void fill() {
 		this.fillServicies();
 		this.fillSocial();
@@ -25,16 +25,19 @@ public class Footer implements Serializable {
 
 	public void fillServicies() {
 		this.services = new ArrayList<Item<String>>();
-		Pastley.addItem(new Item<String>("Iniciar Sesión", "login?faces-redirect=true", "pi pi-user"), this.services);
-		Pastley.addItem(new Item<String>("Contacto", "contact?faces-redirect=true", "pi pi-user"), this.services);
-		Pastley.addItem(new Item<String>("Carrito", "cart?faces-redirect=true", "pi pi-user"), this.services);
+		Pastley.addItem(new Item<String>("Iniciar Sesión", "login?faces-redirect=true", "Iniciar Sesión", "pi pi-user"),
+				this.services);
+		Pastley.addItem(new Item<String>("Contacto", "contact?faces-redirect=true", "Contacto", "pi pi-user"),
+				this.services);
+		Pastley.addItem(new Item<String>("Carrito", "cart?faces-redirect=true", "Carrito", "pi pi-user"),
+				this.services);
 	}
-	
+
 	public void fillSocial() {
 		this.social = new ArrayList<Item<String>>();
-		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "pi pi-facebook"), this.social);
-		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "pi pi-twitter"), this.social);
-		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "pi pi-send"), this.social);
+		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "Facebook", "pi pi-facebook"), this.social);
+		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "Twitter", "pi pi-twitter"), this.social);
+		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "Mensaje", "pi pi-send"), this.social);
 	}
 
 	public List<Item<Category>> getCategories() {
