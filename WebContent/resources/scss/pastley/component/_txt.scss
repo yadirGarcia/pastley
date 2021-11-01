@@ -5,4 +5,6 @@
 .lsy-txt-subtitle{
 	@include mixin-text(var(#{$VAR-LSY-TXT-VAR-COLOR}-body));
 	text-transform: capitalize;
+	text-align: left;
+	font-size: 1.5em;
 }

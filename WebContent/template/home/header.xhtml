@@ -47,7 +47,7 @@
 						<button class="lsy-btn-before">
 							<i class="fas fa-arrow-left"></i> Regresar
 						</button>
-						<h3 class="lsy-subtitle">Categorias</h3>
+						<h3 class="lsy-txt-subtitle">Categorias</h3>
 						<ui:repeat var="a" value="#{menu.menuI.level}">
 							<a data-categoria="#{a.entity.name}"> <h:outputText
 									value="#{a.entity.name}"></h:outputText> <i class="#{a.icon}"></i>
@@ -65,7 +65,7 @@
 									<button class="lsy-btn-before">
 										<i class="fas fa-arrow-left"></i> Regresar
 									</button>
-									<h3 class="subtitulo">
+									<h3 class="lsy-txt-subtitle">
 										<h:outputText value="#{a.entity.name}" />
 									</h3>
 									<ui:repeat var="b"
