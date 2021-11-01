@@ -32,8 +32,8 @@ public class MenuI<A, B> implements Serializable {
 	}
 
 	public void fillOptions() {
-		Pastley.addItem(new Item<String>("btn-bars", "fas fa-bars", true), this.options);
-		Pastley.addItem(new Item<String>("btn-close", "fas fa-times", true), this.options);
+		Pastley.addItem(new Item<String>("lsy-btn-bars", "fas fa-bars", true), this.options);
+		Pastley.addItem(new Item<String>("lsy-btn-close", "fas fa-times", true), this.options);
 	}
 
 	public void fillLinks() {

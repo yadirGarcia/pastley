@@ -214,6 +214,96 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   overflow: visible;
 }
 
+.lsy-menu-home {
+  background-color: var(--lsy-background-primary);
+  color: var(--lsy-color-primary);
+  margin-bottom: 20px;
+}
+.lsy-menu-home a {
+  text-decoration: none;
+  outline: none;
+}
+.lsy-menu-home .lsy-container {
+  width: 90%;
+  max-width: 1200px;
+}
+.lsy-menu-home-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.lsy-menu-home-button button {
+  font-size: 20px;
+  color: currentColor;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  display: inline-block;
+  cursor: pointer;
+  background: none;
+}
+.lsy-menu-home-button button:hover {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.lsy-menu-home-button button.lsy-btn-close {
+  display: none;
+}
+.lsy-menu-home-button button.lsy-btn-close.lsy-option-active {
+  display: inline-block;
+}
+.lsy-menu-home-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: var(--lsy-font-family-primary);
+  font-size: var(--lsy-font-size-body);
+}
+.lsy-menu-home-link__drop {
+  color: currentColor;
+  padding: 7px;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  border: 1px solid transparent;
+  cursor: default;
+}
+.lsy-menu-home-link__drop:hover {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.lsy-menu-home-link__drop .lsy-span {
+  display: block;
+  font-weight: bold;
+}
+.lsy-menu-home-link__drop i {
+  margin-left: 20px;
+  position: relative;
+  bottom: 3px;
+}
+.lsy-menu-home-link__links a {
+  color: currentColor;
+  border: 1px solid transparent;
+  padding: 7px;
+  border-radius: 3px;
+}
+.lsy-menu-home-link__links a:hover {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.lsy-menu-home-container {
+  position: relative;
+}
+
 .lsy-footer {
   position: relative;
   max-width: 100%;

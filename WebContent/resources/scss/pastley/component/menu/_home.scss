@@ -1,0 +1,78 @@
+.lsy-menu-home{
+	background-color: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary);
+	color: var(#{$VAR-LSY-TXT-VAR-COLOR}-primary);
+	margin-bottom: 20px;
+	a{
+		text-decoration: none;
+		outline: none;
+	}
+	.lsy-container{
+		width: 90%;
+    	max-width: 1200px;
+	}
+	&-button{
+		display: flex;
+    	justify-content: space-between;
+		button{
+		   	font-size: 20px;
+    		color: currentColor;
+    		padding: 10px 20px;
+    		border: 1px solid transparent;
+    		display: inline-block;
+    	   	cursor: pointer;
+    	   	background: none;
+			&:hover{
+			   border: 1px solid rgba(255, 255, 255, 0.4);
+			}
+			&.lsy-btn-close{
+				display: none;
+				&.#{$VAR-LSY-CLASS-ACTIVE}{
+					display: inline-block;
+				}
+			}
+		}
+	}
+	&-link{
+		display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+		font-family: var(#{$VAR-LSY-TXT-VAR-FONT-FAMILY}-primary);
+  		font-size: var(#{$VAR-LSY-TXT-VAR-FONT-SIZE}-body);
+		&__drop{
+			color: currentColor;
+    		padding: 7px;
+    		border-radius: 3px;
+    		display: flex;
+    		align-items: flex-end;
+    		border: 1px solid transparent;
+    		cursor: default;
+			&:hover{
+				border: 1px solid rgba(255, 255, 255, 0.4);
+			}
+			.lsy-span{
+				display: block;
+    			font-weight: bold;
+			}
+			i{
+				margin-left: 20px;
+    			position: relative;
+    			bottom: 3px;
+			}
+		}
+		&__links{
+			a{
+				color: currentColor;
+    			border: 1px solid transparent;
+    			padding: 7px;
+    			border-radius: 3px;
+				&:hover{
+					border: 1px solid rgba(255, 255, 255, 0.4);
+				}
+			}
+		}
+	}
+	&-container{
+		position: relative;
+	}
+	
+}

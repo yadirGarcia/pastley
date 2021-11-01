@@ -35,7 +35,7 @@ public class HomeBean implements Serializable {
 				|| this.menuBean.getMenuI().getLevel() != null) ? this.menuBean.getMenuI().getLevel()
 						: this.footer.getCategories());
 	}
-
+	
 	public Footer getFooter() {
 		return footer;
 	}

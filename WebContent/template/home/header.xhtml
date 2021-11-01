@@ -6,10 +6,9 @@
 	xmlns:p="http://primefaces.org/ui">
 <body>
 	<ui:composition>
-		<nav class="menu" id="menu">
-
+		<nav class="lsy-menu-home" id="lsy-menu-home">
 			<h:panelGroup layout="block"
-				styleClass="contenedor contenedor-botones-menu">
+				styleClass="lsy-container lsy-menu-home-button">
 				<ui:repeat var="a" value="#{menu.menuI.options}">
 					<button id="#{a.id}" class="#{a.styleClass}">
 						<i class="#{a.icon}"></i>
@@ -18,27 +17,27 @@
 			</h:panelGroup>
 
 			<h:panelGroup layout="block"
-				styleClass="contenedor contenedor-enlaces-nav">
-				<h:panelGroup layout="block" id="btn-departamentos"
-					styleClass="btn-departamentos">
+				styleClass="lsy-container lsy-menu-home-link">
+				<h:panelGroup layout="block" id="lsy-menu-home-link__drop"
+					styleClass="lsy-menu-home-link__drop">
 					<p>
 						Todas las
-						<h:outputText>Categorias</h:outputText>
+						<h:outputText styleClass="lsy-span" value="Categorias" />
 					</p>
 					<i class="fas fa-caret-down"></i>
 				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="lsy-menu-home-link__links">
+					<ui:insert name="tmp-header-nav-link" />
+					<ui:repeat var="a" value="#{menu.menuI.links}">
+						<p:commandLink action="#{a.path}" value="#{a.entity}">
+							<i class="#{a.icon}"></i>
+						</p:commandLink>
+					</ui:repeat>
+				</h:panelGroup>
 			</h:panelGroup>
 
-			<h:panelGroup layout="block" styleClass="enlaces">
-				<ui:insert name="tmp-header-nav-link" />
-				<ui:repeat var="a" value="#{menu.menuI.links}">
-					<p:commandLink action="#{a.path}" value="#{a.entity}">
-						<i class="#{a.icon}"></i>
-					</p:commandLink>
-				</ui:repeat>
-			</h:panelGroup>
 
-			<h:panelGroup layout="block" styleClass="contenedor contenedor-grid">
+			<h:panelGroup layout="block" styleClass="lsy-container lsy-menu-home-container">
 				<h:panelGroup layout="block" styleClass="grid" id="grid">
 					<h:panelGroup layout="block" styleClass="categorias">
 						<button class="btn-regresar">
