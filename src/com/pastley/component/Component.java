@@ -2,6 +2,9 @@ package com.pastley.component;
 
 import java.io.Serializable;
 
+import lombok.Data;
+
+@Data
 public class Component implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -33,50 +36,6 @@ public class Component implements Serializable {
 		this.styleClass = styleClass;
 		this.title = title;
 		this.style = style;
-		this.icon = icon;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getStyleClass() {
-		return styleClass;
-	}
-
-	public void setStyleClass(String styleClass) {
-		this.styleClass = styleClass;
-	}
-
-	public String getStyle() {
-		return style;
-	}
-
-	public void setStyle(String style) {
-		this.style = style;
-	}
-
-	public String getIcon() {
-		return icon;
-	}
-
-	public void setIcon(String icon) {
 		this.icon = icon;
 	}
 }

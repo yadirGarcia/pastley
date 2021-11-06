@@ -10,8 +10,8 @@ import javax.faces.bean.SessionScoped;
 
 import com.pastley.component.Item;
 import com.pastley.component.MenuI;
-import com.pastley.model.Category;
-import com.pastley.model.Product;
+import com.pastley.model.CategoryModel;
+import com.pastley.model.ProductModel;
 
 @ManagedBean(name = "menu")
 @SessionScoped
@@ -19,7 +19,7 @@ public class MenuBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private MenuI<Category, Product> menuI;
+	private MenuI<CategoryModel, ProductModel> menuI;
 
 	public MenuBean() {
 	}
@@ -31,7 +31,7 @@ public class MenuBean implements Serializable {
 	}
 
 	public void initMenuI() {
-		this.menuI = new MenuI<Category, Product>();
+		this.menuI = new MenuI<CategoryModel, ProductModel>();
 		this.menuI.fill();
 		this.consultMenuIByCategories();
 	}
@@ -41,22 +41,22 @@ public class MenuBean implements Serializable {
 			return;
 		int size = 10;
 		for (int i = 0; i < 10; i++) {
-			Category c = new Category((i + 1L), "Categorie " + (i + 1L));
-			this.menuI.getLevel().add(new Item<Category>(c, null, "fas fa-angle-right"));
-			List<Item<Product>> listProduct = new ArrayList<Item<Product>>();
+			CategoryModel c = new CategoryModel((i + 1L), "Categorie " + (i + 1L));
+			this.menuI.getLevel().add(new Item<CategoryModel>(c, null, "fas fa-angle-right"));
+			List<Item<ProductModel>> listProduct = new ArrayList<Item<ProductModel>>();
 			for (int j = 0; j < size; j++) {
-				Product p = new Product((j + 1L), "Product " + c.getId() + "." + (j + 1L), "product.jpg");
-				listProduct.add(new Item<Product>(p, null, null));
+				ProductModel p = new ProductModel((j + 1L), "Product " + c.getId() + "." + (j + 1L), "product.jpg");
+				listProduct.add(new Item<ProductModel>(p, null, null));
 			}
 			this.menuI.getLevelII().add(listProduct);
 		}
 	}
 
-	public MenuI<Category, Product> getMenuI() {
+	public MenuI<CategoryModel, ProductModel> getMenuI() {
 		return menuI;
 	}
 
-	public void setMenuI(MenuI<Category, Product> menuI) {
+	public void setMenuI(MenuI<CategoryModel, ProductModel> menuI) {
 		this.menuI = menuI;
 	}
 

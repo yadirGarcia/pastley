@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+	<title><ui:insert name="tmp-title" /></title>
+	<h:outputStylesheet library="webjars"
+		name="font-awesome/5.12.0/css/all.min-jsf.css" />
+	<h:outputStylesheet library="css" name="pastley.css" />
+	<h:outputStylesheet library="css" name="primeflex.css" />
+	<ui:insert name="tmp-css" />
+</h:head>
+<h:body>
+
+	<h:form>
+		<ui:insert name="tmp-header">
+			<ui:include src="role/header.xhtml" />
+		</ui:insert>
+
+		<ui:insert name="tmp-section" />
+
+		<ui:insert name="tmp-footer">
+			<ui:include src="role/footer.xhtml" />
+		</ui:insert>
+	</h:form>
+
+	<h:outputScript library="js" name="pastley.js" />
+	<ui:insert name="tmp-js" />
+</h:body>
+</html>

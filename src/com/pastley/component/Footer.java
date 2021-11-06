@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pastley.model.Category;
+import com.pastley.model.CategoryModel;
 import com.pastley.util.Pastley;
 
 public class Footer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private List<Item<Category>> categories;
+	private List<Item<CategoryModel>> categories;
 	private List<Item<String>> services;
 	private List<Item<String>> social;
 
@@ -20,7 +20,7 @@ public class Footer implements Serializable {
 	}
 	
 	public void init() {
-		this.categories = new ArrayList<Item<Category>>();
+		this.categories = new ArrayList<Item<CategoryModel>>();
 		this.services = new ArrayList<Item<String>>();
 		this.social = new ArrayList<Item<String>>();
 	}
@@ -45,11 +45,11 @@ public class Footer implements Serializable {
 		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "Mensaje", "pi pi-send"), this.social);
 	}
 
-	public List<Item<Category>> getCategories() {
+	public List<Item<CategoryModel>> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(List<Item<Category>> categories) {
+	public void setCategories(List<Item<CategoryModel>> categories) {
 		this.categories = categories;
 	}
 
