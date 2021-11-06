@@ -9,6 +9,9 @@ import javax.faces.bean.SessionScoped;
 
 import com.pastley.component.Footer;
 
+import lombok.Data;
+
+@Data
 @ManagedBean(name = "home")
 @SessionScoped
 public class HomeBean implements Serializable {
@@ -34,25 +37,5 @@ public class HomeBean implements Serializable {
 		this.footer.setCategories((this.menuBean != null || this.menuBean.getMenuI() != null
 				|| this.menuBean.getMenuI().getLevel() != null) ? this.menuBean.getMenuI().getLevel()
 						: this.footer.getCategories());
-	}
-	
-	public Footer getFooter() {
-		return footer;
-	}
-
-	public MenuBean getMenuBean() {
-		return menuBean;
-	}
-
-	public void setMenuBean(MenuBean menuBean) {
-		this.menuBean = menuBean;
-	}
-
-	public void setFooter(Footer footer) {
-		this.footer = footer;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 }

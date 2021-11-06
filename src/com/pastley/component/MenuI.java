@@ -6,6 +6,9 @@ import java.util.List;
 
 import com.pastley.util.Pastley;
 
+import lombok.Data;
+
+@Data
 public class MenuI<A, B> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -40,41 +43,5 @@ public class MenuI<A, B> implements Serializable {
 		Pastley.addItem(new Item<String>("Contacto", "contact?faces-redirect=true", null), this.links);
 		Pastley.addItem(new Item<String>("Carrito", "cart?faces-redirect=true", null), this.links);
 		Pastley.addItem(new Item<String>("Iniciar Sesión", "login?faces-redirect=true", "pi pi-user"), this.links);
-	}
-
-	public List<Item<String>> getOptions() {
-		return options;
-	}
-
-	public void setOptions(List<Item<String>> options) {
-		this.options = options;
-	}
-
-	public List<Item<String>> getLinks() {
-		return links;
-	}
-
-	public List<Item<A>> getLevel() {
-		return level;
-	}
-
-	public void setLevel(List<Item<A>> level) {
-		this.level = level;
-	}
-
-	public List<List<Item<B>>> getLevelII() {
-		return levelII;
-	}
-
-	public void setLevelII(List<List<Item<B>>> levelII) {
-		this.levelII = levelII;
-	}
-
-	public void setLinks(List<Item<String>> links) {
-		this.links = links;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 }

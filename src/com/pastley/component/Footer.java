@@ -7,6 +7,9 @@ import java.util.List;
 import com.pastley.model.CategoryModel;
 import com.pastley.util.Pastley;
 
+import lombok.Data;
+
+@Data
 public class Footer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -43,33 +46,5 @@ public class Footer implements Serializable {
 		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "Facebook", "pi pi-facebook"), this.social);
 		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "Twitter", "pi pi-twitter"), this.social);
 		Pastley.addItem(new Item<String>(null, "login?faces-redirect=true", "Mensaje", "pi pi-send"), this.social);
-	}
-
-	public List<Item<CategoryModel>> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<Item<CategoryModel>> categories) {
-		this.categories = categories;
-	}
-
-	public List<Item<String>> getServices() {
-		return services;
-	}
-
-	public List<Item<String>> getSocial() {
-		return social;
-	}
-
-	public void setSocial(List<Item<String>> social) {
-		this.social = social;
-	}
-
-	public void setServices(List<Item<String>> services) {
-		this.services = services;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 }
