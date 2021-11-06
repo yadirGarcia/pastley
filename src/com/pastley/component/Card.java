@@ -1,5 +1,7 @@
 package com.pastley.component;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,4 +19,6 @@ public class Card extends Component{
 	private String path;
 	private String value;
 	private String name;
+	
+	private List<Link> links;
 }

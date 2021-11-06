@@ -6,5 +6,19 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="tmp-section">
+		<h1>Cards:</h1>
+		<ui:repeat var="a" value="#{card.cardsUser}">
+			<h:panelGroup layout="block" styleClass="lsy-card #{a.styleClass}">
+				<h:panelGroup layout="block" styleClass="lsy-card__top">
+					<i class="#{a.icon}"></i>
+					<h1>
+						<h:outputText value="#{a.name}" />
+					</h1>
+					<h:outputText value="#{a.value}" />
+				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="lsy-card__bottom">
+				</h:panelGroup>
+			</h:panelGroup>
+		</ui:repeat>
 	</ui:define>
 </ui:composition>
