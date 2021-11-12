@@ -23,9 +23,6 @@ public class HomeBean implements Serializable {
 	@ManagedProperty("#{menu}")
 	private MenuBean menuBean;
 
-	public HomeBean() {
-	}
-
 	@PostConstruct
 	public void init() {
 		this.initFooter();

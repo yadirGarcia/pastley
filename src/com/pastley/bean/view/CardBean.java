@@ -22,12 +22,9 @@ public class CardBean implements Serializable{
 	
 	private List<Card> cardsUser;
 	
-	public CardBean(){
-	}
-	
 	@PostConstruct
 	public void init() {
-		this.cardsUser = new ArrayList<Card>();
+		this.cardsUser = new ArrayList<>();
 	}
 	
 	public void initCardUser() {
