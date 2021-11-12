@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import com.pastley.util.Pastley;
 
 import lombok.Data;
@@ -17,16 +19,13 @@ public class MenuI<A, B> implements Serializable {
 	private List<Item<String>> links;
 	private List<Item<A>> level;
 	private List<List<Item<B>>> levelII;
-
-	public MenuI() {
-		this.init();
-	}
 	
+	@PostConstruct
 	public void init() {
-		this.options = new ArrayList<Item<String>>();
-		this.links = new ArrayList<Item<String>>();
-		this.level = new ArrayList<Item<A>>();
-		this.levelII = new ArrayList<List<Item<B>>>();
+		this.options = new ArrayList<>();
+		this.links = new ArrayList<>();
+		this.level = new ArrayList<>();
+		this.levelII = new ArrayList<>();
 	}
 
 	public void fill() {
@@ -40,8 +39,8 @@ public class MenuI<A, B> implements Serializable {
 	}
 
 	public void fillLinks() {
-		Pastley.addItem(new Item<String>("Contacto", "contact?faces-redirect=true", null), this.links);
-		Pastley.addItem(new Item<String>("Carrito", "cart?faces-redirect=true", null), this.links);
-		Pastley.addItem(new Item<String>("Iniciar Sesión", "login?faces-redirect=true", "pi pi-user"), this.links);
+		Pastley.addItem(new Item<String>("Contacto", "contact.xhtml", null), this.links);
+		Pastley.addItem(new Item<String>("Carrito", "cart.xhtml", null), this.links);
+		Pastley.addItem(new Item<String>("Iniciar Sesión", "login.xhtml", "pi pi-user"), this.links);
 	}
 }

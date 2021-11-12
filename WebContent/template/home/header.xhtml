@@ -29,7 +29,7 @@
 				<h:panelGroup layout="block" styleClass="lsy-menu-home-link__links">
 					<ui:insert name="tmp-header-nav-link" />
 					<ui:repeat var="a" value="#{menu.menuI.links}">
-						<p:commandLink action="#{a.path}" value="#{a.entity}">
+						<p:commandLink action="#{requestApp.direct(a.path)}" value="#{a.entity}">
 							<i class="#{a.icon}"></i>
 						</p:commandLink>
 					</ui:repeat>

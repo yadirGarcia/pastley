@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import com.pastley.model.CategoryModel;
 import com.pastley.util.Pastley;
 
@@ -17,15 +19,12 @@ public class Footer implements Serializable {
 	private List<Item<CategoryModel>> categories;
 	private List<Item<String>> services;
 	private List<Item<String>> social;
-
-	public Footer() {
-		this.init();
-	}
 	
+	@PostConstruct
 	public void init() {
-		this.categories = new ArrayList<Item<CategoryModel>>();
-		this.services = new ArrayList<Item<String>>();
-		this.social = new ArrayList<Item<String>>();
+		this.categories = new ArrayList<>();
+		this.services = new ArrayList<>();
+		this.social = new ArrayList<>();
 	}
 
 	public void fill() {
