@@ -1,0 +1,44 @@
+.lsy-card__statu{
+	display: inline-block;
+	width: auto;
+	height: auto;
+	min-width: 300px;
+	max-width: 300px;
+	min-height: 150px;
+	background-color: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary);
+	color: var(#{$VAR-LSY-TXT-VAR-COLOR}-primary);
+	background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
+	box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 3px 0 rgba(0,0,0,0.12);
+	border: 1px solid currentColor;
+	border-radius: 5px;
+	&-top{
+		filter: brightness(95%);
+		padding: 0.5em;
+		overflow: hidden;
+		font-size: 1.2em;
+		i{
+			font-size: inherit;
+			cursor: pointer;
+			&:hover{
+				animation: animation-generic-move 3s linear infinite alternate;
+			}
+		}
+		.lsy-txt-title{
+			padding-left: .5em;
+			color: currentColor;
+			font-size: inherit;
+			text-align: left;
+			margin-bottom: 0px;
+			@include mixin-text-truncate();
+		}
+		&-value{
+			font-size: 2em;
+    		text-align: center;
+    		display: block;
+    		font-weight: bold;
+			@include mixin-text-truncate();
+			font-family: var(#{$VAR-LSY-TXT-VAR-FONT-FAMILY}-secundary);
+		}
+	}
+
+}

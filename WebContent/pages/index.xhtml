@@ -6,19 +6,28 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="tmp-section">
-		<h1>Cards:</h1>
-		<ui:repeat var="a" value="#{card.cardsUser}">
-			<h:panelGroup layout="block" styleClass="lsy-card #{a.styleClass}">
-				<h:panelGroup layout="block" styleClass="lsy-card__top">
-					<i class="#{a.icon}"></i>
-					<h1>
-						<h:outputText value="#{a.name}" />
-					</h1>
-					<h:outputText value="#{a.value}" />
+
+		<h:panelGroup layout="block"
+			styleClass="p-d-flex p-jc-lg-between p-jc-center p-ai-center p-flex-wrap p-p-4">
+			<ui:repeat var="a" value="#{card.cardsUser}">
+				<h:panelGroup layout="block"
+					styleClass="lsy-card__statu #{a.styleClass} p-m-2">
+					<h:panelGroup layout="block" styleClass="lsy-card__statu-top">
+						<h:panelGroup layout="block"
+							styleClass="p-d-flex p-jc-start p-ai-center p-mb-4">
+							<i class="#{a.icon}"></i>
+							<h1 class="lsy-txt-title">
+								<h:outputText value="#{a.name}" />
+							</h1>
+						</h:panelGroup>
+						<h:outputText value="#{a.value}"  styleClass="lsy-card__statu-top-value">
+							<f:convertNumber currencySymbol="$" type="currency" />
+						</h:outputText>
+					</h:panelGroup>
+					<h:panelGroup layout="block" styleClass="lsy-card__bottom">
+					</h:panelGroup>
 				</h:panelGroup>
-				<h:panelGroup layout="block" styleClass="lsy-card__bottom">
-				</h:panelGroup>
-			</h:panelGroup>
-		</ui:repeat>
+			</ui:repeat>
+		</h:panelGroup>
 	</ui:define>
 </ui:composition>

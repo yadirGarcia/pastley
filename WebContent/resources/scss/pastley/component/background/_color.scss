@@ -1,0 +1,6 @@
+@each $key, $value in getMap($VAR-LSY-COLORS,(alert)) {
+	.lsy-bg-c-#{$key}{
+		background-color: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-#{$key}) !important;
+		color: var(#{$VAR-LSY-TXT-VAR-COLOR}-#{$key}) !important;
+	}
+}

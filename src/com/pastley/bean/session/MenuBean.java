@@ -14,10 +14,12 @@ import com.pastley.model.CategoryModel;
 import com.pastley.model.ProductModel;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
 @ManagedBean(name = "menu")
 @SessionScoped
+@Data
+@NoArgsConstructor
 public class MenuBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -15,7 +15,7 @@
   --lsy-font-size-h5: 1.25em;
   --lsy-font-size-h6: 1em;
   --lsy-font-family-primary: Mulish, monospace, sans-serif;
-  --lsy-font-family-2: Share Tech Mono, cursive, monospace;
+  --lsy-font-family-secundary: Share Tech Mono, cursive, monospace;
   --lsy-background-primary: #FDB135;
   --lsy-color-primary: #FFFFFF;
   --lsy-background-secundary: #2E2E2E;
@@ -190,6 +190,184 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   text-decoration: none !important;
 }
 
+@-webkit-keyframes animation-generic-move {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  10% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  30% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  40% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  60% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  70% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  80% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes animation-generic-move {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  10% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  30% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  40% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  60% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  70% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  80% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes animation-generic-move-box {
+  0% {
+    -webkit-transform: translate(-10%, -10%);
+            transform: translate(-10%, -10%);
+  }
+  33.33% {
+    -webkit-transform: translate(2%, 20%);
+            transform: translate(2%, 20%);
+  }
+  66.66% {
+    -webkit-transform: translate(20%, 2%);
+            transform: translate(20%, 2%);
+  }
+  100% {
+    -webkit-transform: translate(-10%, -10%);
+            transform: translate(-10%, -10%);
+  }
+}
+@keyframes animation-generic-move-box {
+  0% {
+    -webkit-transform: translate(-10%, -10%);
+            transform: translate(-10%, -10%);
+  }
+  33.33% {
+    -webkit-transform: translate(2%, 20%);
+            transform: translate(2%, 20%);
+  }
+  66.66% {
+    -webkit-transform: translate(20%, 2%);
+            transform: translate(20%, 2%);
+  }
+  100% {
+    -webkit-transform: translate(-10%, -10%);
+            transform: translate(-10%, -10%);
+  }
+}
+@-webkit-keyframes animation-generic-move-top {
+  from {
+    -webkit-transform: translateY(-0.625em);
+            transform: translateY(-0.625em);
+  }
+  to {
+    -webkit-transform: translateY(0.3125em);
+            transform: translateY(0.3125em);
+  }
+}
+@keyframes animation-generic-move-top {
+  from {
+    -webkit-transform: translateY(-0.625em);
+            transform: translateY(-0.625em);
+  }
+  to {
+    -webkit-transform: translateY(0.3125em);
+            transform: translateY(0.3125em);
+  }
+}
+.lsy-bg-c-info {
+  background-color: var(--lsy-background-info) !important;
+  color: var(--lsy-color-info) !important;
+}
+
+.lsy-bg-c-danger {
+  background-color: var(--lsy-background-danger) !important;
+  color: var(--lsy-color-danger) !important;
+}
+
+.lsy-bg-c-warning {
+  background-color: var(--lsy-background-warning) !important;
+  color: var(--lsy-color-warning) !important;
+}
+
+.lsy-bg-c-success {
+  background-color: var(--lsy-background-success) !important;
+  color: var(--lsy-color-success) !important;
+}
+
+.lsy-bg-c-fatal {
+  background-color: var(--lsy-background-fatal) !important;
+  color: var(--lsy-color-fatal) !important;
+}
+
+.lsy-c-info {
+  color: var(--lsy-background-info) !important;
+}
+
+.lsy-c-danger {
+  color: var(--lsy-background-danger) !important;
+}
+
+.lsy-c-warning {
+  color: var(--lsy-background-warning) !important;
+}
+
+.lsy-c-success {
+  color: var(--lsy-background-success) !important;
+}
+
+.lsy-c-fatal {
+  color: var(--lsy-background-fatal) !important;
+}
+
 .lsy-container {
   position: relative;
   display: block;
@@ -226,6 +404,58 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   text-transform: capitalize;
   text-align: left;
   font-size: 1.5em;
+}
+
+.lsy-card__statu {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 150px;
+  background-color: var(--lsy-background-primary);
+  color: var(--lsy-color-primary);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
+  -webkit-box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  border: 1px solid currentColor;
+  border-radius: 5px;
+}
+.lsy-card__statu-top {
+  -webkit-filter: brightness(95%);
+          filter: brightness(95%);
+  padding: 0.5em;
+  overflow: hidden;
+  font-size: 1.2em;
+}
+.lsy-card__statu-top i {
+  font-size: inherit;
+  cursor: pointer;
+}
+.lsy-card__statu-top i:hover {
+  -webkit-animation: animation-generic-move 3s linear infinite alternate;
+          animation: animation-generic-move 3s linear infinite alternate;
+}
+.lsy-card__statu-top .lsy-txt-title {
+  padding-left: 0.5em;
+  color: currentColor;
+  font-size: inherit;
+  text-align: left;
+  margin-bottom: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lsy-card__statu-top-value {
+  font-size: 2em;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--lsy-font-family-secundary);
 }
 
 .lsy-menu-home {

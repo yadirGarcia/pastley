@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-
 import com.pastley.util.Pastley;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class MenuI<A, B> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -20,7 +20,6 @@ public class MenuI<A, B> implements Serializable {
 	private List<Item<A>> level;
 	private List<List<Item<B>>> levelII;
 	
-	@PostConstruct
 	public void init() {
 		this.options = new ArrayList<>();
 		this.links = new ArrayList<>();
@@ -29,6 +28,7 @@ public class MenuI<A, B> implements Serializable {
 	}
 
 	public void fill() {
+		this.init();
 		this.fillOptions();
 		this.fillLinks();
 	}
