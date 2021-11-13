@@ -411,6 +411,24 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   height: 50px;
 }
 
+.lsy-badge {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+  background-color: var(--lsy-background-primary);
+  color: var(--lsy-color-primary);
+}
+.lsy-badge:empty {
+  display: none;
+}
+
 .lsy-card__statu {
   display: inline-block;
   width: auto;
@@ -1014,6 +1032,32 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
     border-radius: 5px;
     border: 1px solid var(--lsy-color-primary);
   }
+}
+
+.lsy-menu-user-left {
+  width: 300px;
+  height: 100vh;
+  position: relative;
+  background-color: var(--lsy-background-primary);
+  color: var(--lsy-color-primary);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
+  overflow: hidden;
+}
+.lsy-menu-user-left a {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding-left: 0.5em;
+}
+.lsy-menu-user-left_link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .lsy-footer {

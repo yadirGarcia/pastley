@@ -1,0 +1,24 @@
+@mixin mixin-misc-badge(
+    $color: (
+		var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary), 
+		var(#{$VAR-LSY-TXT-VAR-COLOR}-primary)
+    ),
+    $padding: 0.25em 0.4em,
+    $font-size: 75%,
+) {
+    position: relative;
+    display: inline-block;
+    padding: $padding;
+    font-size: $font-size;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
+    background-color: nth($color, 1);
+    color: nth($color, 2);
+    &:empty {
+        display: none;
+    }
+}

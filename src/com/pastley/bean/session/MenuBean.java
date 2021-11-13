@@ -11,6 +11,7 @@ import javax.faces.bean.SessionScoped;
 import com.pastley.component.Item;
 import com.pastley.component.MenuI;
 import com.pastley.component.MenuII;
+import com.pastley.component.MenuIII;
 import com.pastley.model.CategoryModel;
 import com.pastley.model.ProductModel;
 
@@ -28,6 +29,7 @@ public class MenuBean implements Serializable {
 	private MenuI<CategoryModel, ProductModel> menuI;
 	
 	private MenuII menuII;
+	private MenuIII menuIII;
 
 	@PostConstruct
 	public void init() {
@@ -38,6 +40,7 @@ public class MenuBean implements Serializable {
 	
 	public void initMenuUser() {
 		this.initMenuII();
+		this.initMenuIII();
 	}
 
 	public void initMenuI() {
@@ -49,6 +52,11 @@ public class MenuBean implements Serializable {
 	public void initMenuII() {
 		this.menuII = new MenuII();
 		this.menuII.init("https://raw.githubusercontent.com/DeveUp/pastley-backend/24a5d508aa5b57556ddec01716f72a622740a817/pastley-logos/01.svg");
+	}
+	
+	public void initMenuIII() {
+		this.menuIII = new MenuIII();
+		this.menuIII.init("https://raw.githubusercontent.com/DeveUp/pastley-backend/24a5d508aa5b57556ddec01716f72a622740a817/pastley-logos/01.svg");
 	}
 
 	public void fillMenuIByCategories() {

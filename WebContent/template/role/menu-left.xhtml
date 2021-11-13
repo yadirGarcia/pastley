@@ -1,4 +1,5 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
@@ -6,6 +7,26 @@
 	xmlns:p="http://primefaces.org/ui">
 <body>
 	<ui:composition>
+		<h:panelGroup layout="block" styleClass="lsy-menu-user-left">
+			<h:panelGroup layout="block" styleClass="lsy-menu-user-left_link">
+				<ui:repeat var="a" value="#{menu.menuIII.items}">
+					<p:commandLink>
+						<h:outputText styleClass="lsy-icon #{a.icon}" />
+						<h:outputText value="#{a.entity}" styleClass="lsy-txt" />
+						<h:outputText value="#{a.badge != null ? a.badge.name : ''}"
+							styleClass="lsy-badge" />
+					</p:commandLink>
+					<ui:repeat var="aa" value="#{a.items}">
+						<p:commandLink>
+							<h:outputText styleClass="lsy-icon #{aa.icon}" />
+							<h:outputText value="#{aa.entity}" styleClass="lsy-txt" />
+							<h:outputText value="#{aa.badge != null ? aa.badge.name : ''}"
+								styleClass="lsy-badge" />
+						</p:commandLink>
+					</ui:repeat>
+				</ui:repeat>
+			</h:panelGroup>
+		</h:panelGroup>
 	</ui:composition>
 </body>
 </html>

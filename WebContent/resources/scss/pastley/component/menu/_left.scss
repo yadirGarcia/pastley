@@ -1,0 +1,19 @@
+.lsy-menu-user-left{
+	width: 300px;
+	height: 100vh;
+	position: relative;
+	background-color: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary);
+	color: var(#{$VAR-LSY-TXT-VAR-COLOR}-primary);
+	background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
+	overflow: hidden;
+	a{
+		display: block;
+		width: 100%;
+		height: auto;
+		padding-left: .5em;
+	}
+	&_link{
+		display: flex;
+		flex-direction: column;
+	}
+}
