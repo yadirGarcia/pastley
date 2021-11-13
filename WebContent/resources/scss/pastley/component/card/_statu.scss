@@ -7,7 +7,10 @@
 	min-height: 150px;
 	background-color: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary);
 	color: var(#{$VAR-LSY-TXT-VAR-COLOR}-primary);
-	background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
+	background-image:  url(../resources/img/bubble.png);
+	background-position: left;
+    background-size: cover;
+    background-blend-mode: soft-light;
 	box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 3px 0 rgba(0,0,0,0.12);
 	border: 1px solid currentColor;
 	border-radius: 5px;

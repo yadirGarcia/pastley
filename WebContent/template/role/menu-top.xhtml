@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition>
+		<h:panelGroup layout="block" styleClass="lsy-menu-user-top">
+			<h:panelGroup layout="block" styleClass="lsy-menu-user-top-container">
+				<h:panelGroup layout="block" styleClass="lsy-menu-user-top__logo">
+					<p:commandLink action="/">
+						<p:graphicImage value="#{menu.menuII.logo.path}" cache="false" styleClass="lsy-image-logo" />
+					</p:commandLink>
+				</h:panelGroup>
+				<h:panelGroup layout="block" styleClass="lsy-menu-user-top__items">
+					<ui:repeat var="a" value="#{menu.menuII.items}">
+						<p:commandLink action="#{a.path}"
+							title="#{a.title}">
+							<h:outputText value="#{a.entity}" styleClass="lsy-menu-user-top__items-txt"></h:outputText>
+							<h:outputText styleClass="#{a.icon != null ? a.icon : ''} lsy-menu-user-top__items-icon" />
+						</p:commandLink>
+					</ui:repeat>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+	</ui:composition>
+</body>
+</html>

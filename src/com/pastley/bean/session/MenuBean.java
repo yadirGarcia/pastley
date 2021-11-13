@@ -10,6 +10,7 @@ import javax.faces.bean.SessionScoped;
 
 import com.pastley.component.Item;
 import com.pastley.component.MenuI;
+import com.pastley.component.MenuII;
 import com.pastley.model.CategoryModel;
 import com.pastley.model.ProductModel;
 
@@ -25,19 +26,32 @@ public class MenuBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private MenuI<CategoryModel, ProductModel> menuI;
+	
+	private MenuII menuII;
 
 	@PostConstruct
 	public void init() {
 		this.initMenuI();
+		// REMOVE
+		this.initMenuUser();
+	}
+	
+	public void initMenuUser() {
+		this.initMenuII();
 	}
 
 	public void initMenuI() {
 		this.menuI = new MenuI<>();
 		this.menuI.fill();
-		this.consultMenuIByCategories();
+		this.fillMenuIByCategories();
+	}
+	
+	public void initMenuII() {
+		this.menuII = new MenuII();
+		this.menuII.init("https://raw.githubusercontent.com/DeveUp/pastley-backend/24a5d508aa5b57556ddec01716f72a622740a817/pastley-logos/01.svg");
 	}
 
-	public void consultMenuIByCategories() {
+	public void fillMenuIByCategories() {
 		if (this.menuI == null)
 			return;
 		int size = 10;

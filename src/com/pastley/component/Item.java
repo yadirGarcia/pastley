@@ -1,19 +1,18 @@
 package com.pastley.component;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class Item<A> extends Component{
 
 	private static final long serialVersionUID = 1L;
 
 	private A entity;
 	private String path;
-
-	public Item() {
-	}
 
 	public Item(A entity) {
 		this(null, null, null, entity, null, null);

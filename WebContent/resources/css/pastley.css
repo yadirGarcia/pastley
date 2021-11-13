@@ -406,6 +406,11 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   font-size: 1.5em;
 }
 
+.lsy-image-logo {
+  width: 50px;
+  height: 50px;
+}
+
 .lsy-card__statu {
   display: inline-block;
   width: auto;
@@ -415,8 +420,10 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   min-height: 150px;
   background-color: var(--lsy-background-primary);
   color: var(--lsy-color-primary);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(0, 0, 0, 0)));
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
+  background-image: url(../resources/img/bubble.png);
+  background-position: left;
+  background-size: cover;
+  background-blend-mode: soft-light;
   -webkit-box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border: 1px solid currentColor;
@@ -901,6 +908,111 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     -ms-grid-column-span: 4;
+  }
+}
+
+.lsy-menu-user-top {
+  width: 100%;
+  position: relative;
+  background-color: var(--lsy-background-primary);
+  color: var(--lsy-color-primary);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
+}
+.lsy-menu-user-top-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0.5em;
+  overflow: hidden;
+}
+.lsy-menu-user-top-container, .lsy-menu-user-top__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+.lsy-menu-user-top__logo {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+.lsy-menu-user-top__logo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-transition: -webkit-transform 0.5s linear;
+  transition: -webkit-transform 0.5s linear;
+  transition: transform 0.5s linear;
+  transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+}
+.lsy-menu-user-top__logo img:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+.lsy-menu-user-top__items a {
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  padding: 5px 10px;
+  -webkit-transition: background-image 0.5s ease-in-out;
+  transition: background-image 0.5s ease-in-out;
+}
+.lsy-menu-user-top__items a:not(:first-of-type) {
+  margin-left: 0.5em;
+}
+.lsy-menu-user-top__items a:hover {
+  color: currentColor;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
+}
+.lsy-menu-user-top__items-txt {
+  display: block;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+}
+.lsy-menu-user-top__items-icon {
+  margin-left: 0.4em;
+  margin-top: 0.2em;
+}
+@media screen and (max-width: 750px) {
+  .lsy-menu-user-top-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .lsy-menu-user-top__items {
+    width: 100%;
+    margin-top: 0.3em;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding-bottom: 0.4em;
+  }
+  .lsy-menu-user-top__items::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  .lsy-menu-user-top__items::-webkit-scrollbar-track {
+    background: var(--lsy-background-primary);
+  }
+  .lsy-menu-user-top__items::-webkit-scrollbar-thumb {
+    background-color: var(--lsy-background-primary);
+    border-radius: 5px;
+    border: 1px solid var(--lsy-color-primary);
   }
 }
 
