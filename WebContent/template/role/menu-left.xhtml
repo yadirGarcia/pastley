@@ -33,10 +33,10 @@
 					<li class="lsy-menu-user-left__item #{a.items != null ? 'lsy-menu-user-left__item-accordion' : ''}">
 						<p:commandLink
 							styleClass="#{a.info == true ? 'lsy-menu-user-left__item-info' : ''}">
-							<h:outputText styleClass="lsy-icon #{a.icon}" />
+							<h:outputText styleClass="lsy-icon #{a.icon}" rendered="#{a.icon != null}"/>
 							<h:outputText value="#{a.entity}" styleClass="lsy-txt" />
-							<h:outputText value="#{a.badge != null ? a.badge.name : ''}"
-								styleClass="lsy-badge" />
+							<h:outputText  rendered="#{a.badge != null}" value="#{a.badge.name}"
+								styleClass="lsy-badge #{a.badge.styleClass}" />
 							<c:if test="#{not a.info}">
 								<h:outputText rendered="#{a.items != null}"
 									styleClass="lsy-icon lsy-icon-accordion fas fa-arrow-down" />
@@ -45,12 +45,13 @@
 						<c:if test="#{a.info ne true}">
 							<ul>
 								<ui:repeat var="aa" value="#{a.items}">
-									<li class="lsy-menu-user-left__item"><p:commandLink>
+									<li class="lsy-menu-user-left__item">
+										<p:commandLink>
 											<h:outputText styleClass="lsy-icon #{aa.icon}" />
 											<h:outputText value="#{aa.entity}" styleClass="lsy-txt" />
-											<h:outputText
-												value="#{aa.badge != null ? aa.badge.name : ''}"
-												styleClass="lsy-badge" />
+											<h:outputText rendered="#{aa.badge != null}"
+												value="#{aa.badge.name}"
+												styleClass="lsy-badge #{aa.badge.styleClass}" />
 										</p:commandLink>
 									</li>
 								</ui:repeat>

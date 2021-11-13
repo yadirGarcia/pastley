@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.pastley.util.PastleyVariable;
+
 import lombok.Data;
 
 @Data
-public class MenuIII implements Serializable { 
+public class MenuIII implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,17 +23,81 @@ public class MenuIII implements Serializable {
 
 	public void fillItems() {
 		this.items = new ArrayList<>();
-		for (int i = 0; i < 4; i++) {
-			Badge badge = new Badge("Pro", "3", null, "pi pi-user");
-			boolean isInfo = (i%2==0);
-			ItemII<String> item = new ItemII<>(badge, isInfo ,"Item " + i, "index.xhtml", "pi pi-user");
-			if(!isInfo) {
-				item.setItems(new ArrayList<>());
-				for (int j = 0; j <= 3; j++) {
-					item.getItems().add(new ItemII<>(j % 2 == 0 ? badge : null, (j==0), "Item " + i + "," + j, "index.xhtml", "pi pi-user"));
-				}
-			}
-			this.items.add(item);
-		}
+		this.fillMaintenance();
+		this.fillCompany();
+		this.fillSale();
+	}
+
+	public void fillMaintenance() {
+		this.items.add(new ItemII<>(null, true, PastleyVariable.PASTLEY_MENU_TYPE_MAINTENANCE, null, null));
+		// Customer
+		List<ItemII<String>> customer = new ArrayList<>();
+		customer.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_HISTORY, null,
+				PastleyVariable.PASTLEY_ICON_HISTORY));
+		customer.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_STATISTICS, null,
+				PastleyVariable.PASTLEY_ICON_STATISTICS));
+		this.items.add(
+				new ItemII<>(new Badge("admi", "lsy-bg-c-warning"), false, PastleyVariable.PASTLEY_MENU_TYPE_CUSTOMER,
+						null, PastleyVariable.PASTLEY_ICON_TYPE_CUSTOMER, customer));
+		// Cashier
+		List<ItemII<String>> cashier = new ArrayList<>();
+		cashier.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_HISTORY, null,
+				PastleyVariable.PASTLEY_ICON_HISTORY));
+		cashier.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_REGISTER, null,
+				PastleyVariable.PASTLEY_ICON_REGISTER));
+		cashier.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_STATISTICS, null,
+				PastleyVariable.PASTLEY_ICON_STATISTICS));
+		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_TYPE_CASHIER, null,
+				PastleyVariable.PASTLEY_ICON_TYPE_CASHIER, cashier));
+		// Product
+		List<ItemII<String>> product = new ArrayList<>();
+		product.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_HISTORY, null,
+				PastleyVariable.PASTLEY_ICON_HISTORY));
+		product.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_REGISTER, null,
+				PastleyVariable.PASTLEY_ICON_REGISTER));
+		product.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_STATISTICS, null,
+				PastleyVariable.PASTLEY_ICON_STATISTICS));
+		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_TYPE_PRODUCT, null,
+				PastleyVariable.PASTLEY_ICON_TYPE_PRODUCT, product));
+	}
+
+	public void fillCompany() {
+		this.items.add(new ItemII<>(new Badge("admi", "lsy-bg-c-warning"), true,
+				PastleyVariable.PASTLEY_MENU_TYPE_COMPANY, null, null));
+		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_TYPE_COMPANY_INFO, null,
+				PastleyVariable.PASTLEY_ICON_INFO));
+		// PQR
+		List<ItemII<String>> pqr = new ArrayList<>();
+		pqr.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_HISTORY, null,
+				PastleyVariable.PASTLEY_ICON_HISTORY));
+		pqr.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_REGISTER, null,
+				PastleyVariable.PASTLEY_ICON_REGISTER));
+		pqr.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_STATISTICS, null,
+				PastleyVariable.PASTLEY_ICON_STATISTICS));
+		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_TYPE_PQR, null,
+				PastleyVariable.PASTLEY_ICON_TYPE_PQR, pqr));
+		// Contact
+		List<ItemII<String>> contact = new ArrayList<>();
+		contact.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_HISTORY, null,
+				PastleyVariable.PASTLEY_ICON_HISTORY));
+		contact.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_RESPONSE, null,
+				PastleyVariable.PASTLEY_ICON_RESPONSE));
+		contact.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_STATISTICS, null,
+				PastleyVariable.PASTLEY_ICON_STATISTICS));
+		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_TYPE_CONTACT, null,
+				PastleyVariable.PASTLEY_ICON_TYPE_CONTACT, contact));
+	}
+
+	public void fillSale() {
+		this.items.add(new ItemII<>(new Badge("nuevo", "lsy-bg-c-success"), true,
+				PastleyVariable.PASTLEY_MENU_TYPE_SALE, null, null));
+		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_HISTORY, null,
+				PastleyVariable.PASTLEY_ICON_HISTORY));
+		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_REGISTER, null,
+				PastleyVariable.PASTLEY_ICON_REGISTER));
+		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_STATISTICS, null,
+				PastleyVariable.PASTLEY_ICON_STATISTICS));
+		this.items.add(new ItemII<>(new Badge("info", "lsy-bg-c-info"), false, PastleyVariable.PASTLEY_MENU_NAME_MONTH,
+				null, PastleyVariable.PASTLEY_ICON_MONTH));
 	}
 }
