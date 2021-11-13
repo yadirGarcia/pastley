@@ -1,0 +1,15 @@
+.icon{
+   position: relative;
+   width: 100%;
+   height: auto;
+   color: inherit;
+   background-color: inherit;
+   font-size: var(#{$VAR-LSY-TXT-VAR-FONT-SIZE}-primary);
+   box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px transparent, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+   padding: .2em .7em;
+   .lsy-txt{
+      font-family: var(#{$VAR-LSY-TXT-VAR-FONT-FAMILY}-primary);
+      margin: 0em .4em;
+      font-weight: 400;
+   }
+}

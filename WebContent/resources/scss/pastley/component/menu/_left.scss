@@ -6,14 +6,46 @@
 	color: var(#{$VAR-LSY-TXT-VAR-COLOR}-primary);
 	background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
 	overflow: hidden;
-	a{
-		display: block;
-		width: 100%;
-		height: auto;
-		padding-left: .5em;
+	@include mixin-display-flex(space-between, center, row, nowrap, null);
+	ul{
+	  	width: 100%;
+	   	padding: .2em .5em;
+       	@include mixin-display-flex(flex-start, center, column, nowrap, auto);
+       	margin-bottom: 0;
+       	position: relative;
+	   li{
+		  width: 100%;
+          position: relative;
+          display: block;
+          height: 100%;
+		  a{
+              @include mixin-display-flex(flex-start, center, row, nowrap, auto); 
+              padding: .5em;
+              color: inherit;
+              border: 1px solid transparent;
+          }
+		  ul{
+			background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+		  }
+       }
 	}
-	&_link{
-		display: flex;
-		flex-direction: column;
+	&__item{
+		.lsy-icon{
+           order: 1;
+           border-radius: 5px;
+           width: 30px;
+           @include mixin-display-flex(center, center, row, nowrap, 30px); 
+           padding: .4em;
+        }
+        .lsy-txt {
+           order: 2;
+           max-width: 100px;
+           @include mixin-text-truncate();
+        }
+        .lsy-badge{
+           order: 3;
+        }
 	}
 }

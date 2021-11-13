@@ -1,0 +1,16 @@
+@mixin mixin-display-flex(
+    $justify-content:center, 
+    $align-items:center, 
+    $flex-direction:row, 
+    $flex-wrap: wrap, 
+    $height: auto
+) {	
+	display: flex;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	flex-direction: $flex-direction;
+	flex-wrap: $flex-wrap; 
+    @if $height != $VAR-LSY-TXT-NULL{
+        height: $height;   
+    }
+}
