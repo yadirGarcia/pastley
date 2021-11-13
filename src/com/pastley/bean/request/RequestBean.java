@@ -37,6 +37,7 @@ public class RequestBean implements Serializable {
 		try {
 			this.external.redirect(this.url + "/" + path);
 		} catch (IOException e) {
+			LOGGER.error("Accessing method: direct(String path)");
 		}
 	}
 }

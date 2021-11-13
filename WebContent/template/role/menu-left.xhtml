@@ -8,26 +8,48 @@
 <body>
 	<ui:composition>
 		<h:panelGroup layout="block" styleClass="lsy-menu-user-left">
+			<ul class="lsy-menu-user-left__company">
+				<p:commandLink value="Pastley" />
+			</ul>
+			<ul class="lsy-menu-user-left__user">
+				<h:panelGroup layout="block"
+					styleClass="lsy-menu-user-left__user-image lsy-image-container">
+					<p:commandLink>
+						<p:graphicImage cache="false" styleClass="lsy-image-user-profile"
+							value="https://i.pinimg.com/originals/90/82/65/908265374117eefa251b1b9b624d4ae6.jpg" />
+					</p:commandLink>
+				</h:panelGroup>
+				<h:panelGroup layout="block"
+					styleClass="lsy-menu-user-left__user-info">
+					<h:outputText value="Sergio Stives Barrios Buitrago"
+						styleClass="lsy-txt" />
+					<h:outputText value="Administrador" styleClass="lsy-txt" />
+					<h:outputText value="Activo"
+						styleClass="lsy-badge lsy-bg-c-success" />
+				</h:panelGroup>
+			</ul>
 			<ul>
 				<ui:repeat var="a" value="#{menu.menuIII.items}">
-					<li class="lsy-menu-user-left__item">
-						<p:commandLink styleClass="#{a.info == true ? 'lsy-menu-user-left__item-info' : ''}">
-							<h:outputText styleClass="lsy-icon #{a.icon}"/>
+					<li class="lsy-menu-user-left__item #{a.items != null ? 'lsy-menu-user-left__item-accordion' : ''}">
+						<p:commandLink
+							styleClass="#{a.info == true ? 'lsy-menu-user-left__item-info' : ''}">
+							<h:outputText styleClass="lsy-icon #{a.icon}" />
 							<h:outputText value="#{a.entity}" styleClass="lsy-txt" />
 							<h:outputText value="#{a.badge != null ? a.badge.name : ''}"
 								styleClass="lsy-badge" />
 							<c:if test="#{not a.info}">
-								<h:outputText rendered="#{a.items != null}" styleClass="lsy-icon lsy-icon-accordion pi pi-user"/>
+								<h:outputText rendered="#{a.items != null}"
+									styleClass="lsy-icon lsy-icon-accordion fas fa-arrow-down" />
 							</c:if>
-						</p:commandLink>
-						<c:if test="#{a.info ne  true}">
+						</p:commandLink> 
+						<c:if test="#{a.info ne true}">
 							<ul>
 								<ui:repeat var="aa" value="#{a.items}">
-									<li class="lsy-menu-user-left__item">
-										<p:commandLink>
+									<li class="lsy-menu-user-left__item"><p:commandLink>
 											<h:outputText styleClass="lsy-icon #{aa.icon}" />
 											<h:outputText value="#{aa.entity}" styleClass="lsy-txt" />
-											<h:outputText value="#{aa.badge != null ? aa.badge.name : ''}"
+											<h:outputText
+												value="#{aa.badge != null ? aa.badge.name : ''}"
 												styleClass="lsy-badge" />
 										</p:commandLink>
 									</li>

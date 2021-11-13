@@ -296,6 +296,28 @@ a {
   width: 50px;
   height: 50px; }
 
+.lsy-image-user-profile {
+  width: 50px;
+  height: 50px;
+  object-fit: cover; }
+
+.lsy-image-container {
+  width: 60px;
+  height: 60px;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  overflow: hidden; }
+  .lsy-image-container > a {
+    width: 100%;
+    height: 100%;
+    display: block; }
+  .lsy-image-container .lsy-image-user-profile {
+    width: 100%;
+    height: 100%;
+    transition: transform .5s ease-in-out; }
+    .lsy-image-container .lsy-image-user-profile:hover {
+      transform: scale(1.5) rotate(5deg); }
+
 .lsy-badge {
   position: relative;
   display: inline-block;
@@ -764,18 +786,60 @@ a {
           background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0)); }
           .lsy-menu-user-left ul li a:hover .lsy-icon:not(.lsy-icon-accordion):before {
             animation: animation-generic-move 3s linear infinite alternate; }
+      .lsy-menu-user-left ul li.lsy-option-active > a {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0)); }
+      .lsy-menu-user-left ul li.lsy-option-active .lsy-icon-accordion::before {
+        transform: rotate(180deg); }
       .lsy-menu-user-left ul li ul {
         background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
         border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px; }
+        border-bottom-right-radius: 5px;
+        border: 1px solid currentColor; }
         .lsy-menu-user-left ul li ul:not(.lsy-option-active) {
           display: none; }
+  .lsy-menu-user-left__company {
+    color: currentColor;
+    filter: brightness(70%);
+    flex-direction: row !important;
+    padding: 1em !important;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
+    border-bottom: 2px solid currentColor; }
+    .lsy-menu-user-left__company a {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bolder; }
+  .lsy-menu-user-left__user {
+    padding: 0em;
+    padding-bottom: .7em;
+    border-bottom: 2px solid currentColor;
+    margin-bottom: .5em;
+    display: flex;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    height: auto !important; }
+    .lsy-menu-user-left__user-info {
+      padding-left: .5em; }
+      .lsy-menu-user-left__user-info .lsy-txt {
+        max-width: 200px;
+        overflow: hidden ;
+        text-overflow: ellipsis ;
+        white-space: nowrap ;
+        font-weight: bolder; }
+        .lsy-menu-user-left__user-info .lsy-txt:not(:first-of-type) {
+          font-size: 14px;
+          font-weight: normal; }
   .lsy-menu-user-left__item-info {
     color: currentColor;
     filter: brightness(70%);
     cursor: default; }
     .lsy-menu-user-left__item-info:hover {
       background-image: none !important; }
+    .lsy-menu-user-left__item-info .lsy-txt {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bolder; }
     .lsy-menu-user-left__item-info .lsy-icon:not(.lsy-icon-accordion):before {
       animation: none !important; }
   .lsy-menu-user-left__item .lsy-icon {
@@ -799,6 +863,8 @@ a {
     order: 3; }
   .lsy-menu-user-left__item .lsy-icon-accordion {
     order: 4; }
+    .lsy-menu-user-left__item .lsy-icon-accordion::before {
+      transition: transform .2s linear; }
   .lsy-menu-user-left__item .lsy-icon ~ .lsy-txt,
   .lsy-menu-user-left__item .lsy-badge ~ .lsy-icon-accordion {
     margin-left: .5em; }

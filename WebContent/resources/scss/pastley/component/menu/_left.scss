@@ -16,7 +16,7 @@
        	@include mixin-display-flex(flex-start, center, column, nowrap, auto);
        	margin-bottom: 0;
        	position: relative;
-	   li{
+	    li{
 		  width: 100%;
           position: relative;
           display: block;
@@ -37,15 +37,57 @@
 				}
 			  }
           }
+		  &.#{$VAR-LSY-CLASS-ACTIVE}{
+			& > a{
+				background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
+			}
+			.lsy-icon-accordion{
+				&::before{
+					transform: rotate(180deg);
+				}
+			}
+		  }
 		  ul{
 			background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
 			border-bottom-left-radius: 5px;
 			border-bottom-right-radius: 5px;
+			border: 1px solid currentColor;
 			&:not(.#{$VAR-LSY-CLASS-ACTIVE}){
 				display: none;
 			}
 		  }
        }
+	}
+	&__company{
+		@include mixin-background-darken-brightness(currentColor, 70%);
+		flex-direction: row !important;
+		padding: 1em !important;
+		background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
+		border-bottom: 2px solid currentColor;
+		a{
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			font-weight: bolder;
+		}
+	}
+	&__user{
+		padding: 0em;
+		padding-bottom: .7em;
+		border-bottom: 2px solid currentColor;
+		margin-bottom: .5em;
+		@include mixin-display-flex(flex-start !important, center !important, row !important, nowrap !important, auto !important);
+		&-info{
+			padding-left: .5em;
+			.lsy-txt {
+           		max-width: 200px;
+           		@include mixin-text-truncate();
+				font-weight: bolder;
+				&:not(:first-of-type){
+					font-size: 14px;
+					font-weight: normal;
+				}
+        	}
+		}
 	}
 	&__item{
 		&-info{
@@ -54,6 +96,11 @@
 				background-image: none !important;
 			}
 			cursor: default;
+			.lsy-txt {
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				font-weight: bolder;
+			}
 			.lsy-icon{
 				&:not(.lsy-icon-accordion){
 					&:before{
@@ -79,6 +126,9 @@
         }
 		.lsy-icon-accordion{
 			order: 4;
+			&::before{
+				transition: transform .2s linear;
+			}
 		}
 		.lsy-icon ~ .lsy-txt,
         .lsy-badge ~ .lsy-icon-accordion{

@@ -87,3 +87,25 @@ const pastleyMenuHome = (id) => {
 		});
 	}
 }
+
+const pastleyMenuLeft = (id) =>{
+	let menu = document.querySelector(`${id}`);
+	if(menu != null){
+		let items = menu.querySelectorAll(".lsy-menu-user-left__item-accordion > a");
+		if(items != null){
+			items.forEach((e) => {
+				e.addEventListener("click", (ev) => {
+					ev.preventDefault();
+					let parent = e.parentNode;
+					if(parent != null){
+						let ul = parent.querySelector("UL");
+						parent.classList.toggle(LSY_CLASS_ACTIVE);
+						if(ul != null){
+							ul.classList.toggle(LSY_CLASS_ACTIVE);
+						}
+					}
+				});
+			});
+		}
+	}
+}
