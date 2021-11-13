@@ -4,11 +4,13 @@
 	position: relative;
 	background-color: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary);
 	color: var(#{$VAR-LSY-TXT-VAR-COLOR}-primary);
-	background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
 	overflow: hidden;
 	overflow-y: auto;
 	@include mixin-display-flex(flex-start, center, column, nowrap, null);
 	@include mixin-scroll();
+	position: fixed;
+	top: 0;
+	left: 0;
 	ul{
 	  	width: 100%;
 	   	padding: .2em .5em;
@@ -59,10 +61,10 @@
        }
 	}
 	&__company{
-		@include mixin-background-darken-brightness(currentColor, 70%);
+		@include mixin-background-darken-brightness(currentColor, 90%);
 		flex-direction: row !important;
 		padding: 1em !important;
-		background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
+		background-image: linear-gradient(-100deg, rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
 		border-bottom: 2px solid currentColor;
 		a{
 			text-transform: uppercase;
@@ -71,8 +73,7 @@
 		}
 	}
 	&__user{
-		padding: 0em;
-		padding-bottom: .7em;
+		padding: 1em .5em !important;
 		border-bottom: 2px solid currentColor;
 		margin-bottom: .5em;
 		@include mixin-display-flex(flex-start !important, center !important, row !important, nowrap !important, auto !important);

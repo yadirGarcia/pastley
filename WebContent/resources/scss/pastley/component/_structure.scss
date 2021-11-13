@@ -1,0 +1,28 @@
+.lsy-structure-home {
+	display: grid;
+  	grid-template-columns: auto 1fr;
+  	grid-template-rows: repeat(3, auto);
+  	grid-template-areas: "Left   Top      Top" 
+                         "Left   Center   Center" 
+                         "Left   Center 	Center";
+  	position: relative; 
+  	&, 
+  	&__top, 
+  	&__left, 
+  	&__center {
+    	overflow: hidden;
+    	transition: all 1s cubic-bezier(0.69, 0.01, 0.25, 1); 
+  	}
+	&__top {
+   	 	grid-area: Top; 
+    }
+	&__left {
+   	 	grid-area: Left; 
+		width: 300px;
+    	height: 100vh;
+    }
+	&__center {
+   	 	grid-area: Center; 
+		min-height: 90vh;
+    }
+}
