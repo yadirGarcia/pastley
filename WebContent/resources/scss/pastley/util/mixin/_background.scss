@@ -1,0 +1,13 @@
+@mixin mixin-background-darken-brightness(
+    $color: var(#{$VAR-LSY-TXT-VAR-COLOR}-body), 
+    $darken: 80%, 
+    $tag-color: color, 
+    $tag-filter: filter
+) {
+    @if $color != null {
+        #{$tag-color}: $color;
+    }
+    @if $darken != null {
+        #{$tag-filter}: brightness($darken);
+    }
+}

@@ -6,10 +6,13 @@
 	color: var(#{$VAR-LSY-TXT-VAR-COLOR}-primary);
 	background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
 	overflow: hidden;
-	@include mixin-display-flex(space-between, center, row, nowrap, null);
+	overflow-y: auto;
+	@include mixin-display-flex(flex-start, center, column, nowrap, null);
+	@include mixin-scroll();
 	ul{
 	  	width: 100%;
 	   	padding: .2em .5em;
+		padding-right: 0em;
        	@include mixin-display-flex(flex-start, center, column, nowrap, auto);
        	margin-bottom: 0;
        	position: relative;
@@ -23,15 +26,42 @@
               padding: .5em;
               color: inherit;
               border: 1px solid transparent;
+			  &:hover{
+				background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
+				.lsy-icon{
+					&:not(.lsy-icon-accordion){
+						&:before{
+                            animation: animation-generic-move 3s linear infinite alternate;
+                        }
+					}
+				}
+			  }
           }
 		  ul{
 			background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
 			border-bottom-left-radius: 5px;
 			border-bottom-right-radius: 5px;
+			&:not(.#{$VAR-LSY-CLASS-ACTIVE}){
+				display: none;
+			}
 		  }
        }
 	}
 	&__item{
+		&-info{
+			@include mixin-background-darken-brightness(currentColor, 70%);
+			&:hover{
+				background-image: none !important;
+			}
+			cursor: default;
+			.lsy-icon{
+				&:not(.lsy-icon-accordion){
+					&:before{
+                       animation: none !important;
+                    }
+				}
+			}
+		}
 		.lsy-icon{
            order: 1;
            border-radius: 5px;
@@ -41,11 +71,21 @@
         }
         .lsy-txt {
            order: 2;
-           max-width: 100px;
+           max-width: 200px;
            @include mixin-text-truncate();
         }
         .lsy-badge{
            order: 3;
+        }
+		.lsy-icon-accordion{
+			order: 4;
+		}
+		.lsy-icon ~ .lsy-txt,
+        .lsy-badge ~ .lsy-icon-accordion{
+           margin-left: .5em;
+        }
+        .lsy-badge ~ .lsy-txt{
+           margin-right: .5em;
         }
 	}
 }

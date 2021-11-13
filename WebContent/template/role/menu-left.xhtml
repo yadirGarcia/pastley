@@ -1,5 +1,5 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
@@ -11,23 +11,29 @@
 			<ul>
 				<ui:repeat var="a" value="#{menu.menuIII.items}">
 					<li class="lsy-menu-user-left__item">
-						<p:commandLink>
-							<h:outputText styleClass="lsy-icon #{a.icon}" />
+						<p:commandLink styleClass="#{a.info == true ? 'lsy-menu-user-left__item-info' : ''}">
+							<h:outputText styleClass="lsy-icon #{a.icon}"/>
 							<h:outputText value="#{a.entity}" styleClass="lsy-txt" />
 							<h:outputText value="#{a.badge != null ? a.badge.name : ''}"
 								styleClass="lsy-badge" />
+							<c:if test="#{not a.info}">
+								<h:outputText rendered="#{a.items != null}" styleClass="lsy-icon lsy-icon-accordion pi pi-user"/>
+							</c:if>
 						</p:commandLink>
-						<ul>
-							<ui:repeat var="aa" value="#{a.items}">
-								<li class="lsy-menu-user-left__item"><p:commandLink>
-										<h:outputText styleClass="lsy-icon #{aa.icon}" />
-										<h:outputText value="#{aa.entity}" styleClass="lsy-txt" />
-										<h:outputText value="#{aa.badge != null ? aa.badge.name : ''}"
-											styleClass="lsy-badge" />
-									</p:commandLink>
-								</li>
-							</ui:repeat>
-						</ul>
+						<c:if test="#{a.info ne  true}">
+							<ul>
+								<ui:repeat var="aa" value="#{a.items}">
+									<li class="lsy-menu-user-left__item">
+										<p:commandLink>
+											<h:outputText styleClass="lsy-icon #{aa.icon}" />
+											<h:outputText value="#{aa.entity}" styleClass="lsy-txt" />
+											<h:outputText value="#{aa.badge != null ? aa.badge.name : ''}"
+												styleClass="lsy-badge" />
+										</p:commandLink>
+									</li>
+								</ui:repeat>
+							</ul>
+						</c:if>
 					</li>
 				</ui:repeat>
 			</ul>

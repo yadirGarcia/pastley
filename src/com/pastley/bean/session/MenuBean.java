@@ -34,6 +34,7 @@ public class MenuBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		this.initMenuI();
+		
 		// REMOVE
 		this.initMenuUser();
 	}

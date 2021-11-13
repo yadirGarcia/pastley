@@ -424,7 +424,7 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   font-size: 1.5em;
 }
 
-.icon {
+.lsy-icon {
   position: relative;
   width: 100%;
   height: auto;
@@ -435,7 +435,7 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
           box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px transparent, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
   padding: 0.2em 0.7em;
 }
-.icon .lsy-txt {
+.lsy-icon .lsy-txt {
   font-family: var(--lsy-font-family-primary);
   margin: 0em 0.4em;
   font-weight: 400;
@@ -1078,25 +1078,39 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(0, 0, 0, 0)));
   background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
   overflow: hidden;
+  overflow-y: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+}
+.lsy-menu-user-left::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.lsy-menu-user-left::-webkit-scrollbar-track {
+  background: var(--lsy-background-primary);
+}
+.lsy-menu-user-left::-webkit-scrollbar-thumb {
+  background-color: var(--lsy-background-primary);
+  border-radius: 5px;
+  border: 1px solid var(--lsy-color-primary);
 }
 .lsy-menu-user-left ul {
   width: 100%;
   padding: 0.2em 0.5em;
+  padding-right: 0em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1143,11 +1157,35 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
   border: 1px solid transparent;
 }
+.lsy-menu-user-left ul li a:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
+}
+.lsy-menu-user-left ul li a:hover .lsy-icon:not(.lsy-icon-accordion):before {
+  -webkit-animation: animation-generic-move 3s linear infinite alternate;
+          animation: animation-generic-move 3s linear infinite alternate;
+}
 .lsy-menu-user-left ul li ul {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.3)), to(rgba(0, 0, 0, 0)));
   background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0));
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+.lsy-menu-user-left ul li ul:not(.lsy-option-active) {
+  display: none;
+}
+.lsy-menu-user-left__item-info {
+  color: currentColor;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
+  cursor: default;
+}
+.lsy-menu-user-left__item-info:hover {
+  background-image: none !important;
+}
+.lsy-menu-user-left__item-info .lsy-icon:not(.lsy-icon-accordion):before {
+  -webkit-animation: none !important;
+          animation: none !important;
 }
 .lsy-menu-user-left__item .lsy-icon {
   -webkit-box-ordinal-group: 2;
@@ -1177,7 +1215,7 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
-  max-width: 100px;
+  max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1186,6 +1224,18 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
+}
+.lsy-menu-user-left__item .lsy-icon-accordion {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+}
+.lsy-menu-user-left__item .lsy-icon ~ .lsy-txt,
+.lsy-menu-user-left__item .lsy-badge ~ .lsy-icon-accordion {
+  margin-left: 0.5em;
+}
+.lsy-menu-user-left__item .lsy-badge ~ .lsy-txt {
+  margin-right: 0.5em;
 }
 
 .lsy-footer {
