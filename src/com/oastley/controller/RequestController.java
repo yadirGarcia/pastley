@@ -1,0 +1,98 @@
+package com.oastley.controller;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.Serializable;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import com.pastley.models.dto.ExceptionDTO;
+import com.pastley.util.PastleyValidate;
+import com.pastley.util.PastleyVariable;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+public class RequestController<A> implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private String PROPERTY_TYPE = PastleyVariable.PASTLEY_API_PROPERTY_TYPE_JSON;
+	private String PROPERTY_ACCEPT = PastleyVariable.PASTLEY_API_PROPERTY_ACCEPT_JSON;
+
+	public HttpURLConnection requestToHead(String path, String method, JSONObject send) throws ExceptionDTO {
+		try {
+			URL connect = new URL(path);
+			HttpURLConnection http = (HttpURLConnection) connect.openConnection();
+			http.setDoOutput(true);
+			http.setDoInput(true);
+			http.setRequestProperty("Content-Type", PROPERTY_TYPE);
+			http.setRequestProperty("Accept", PROPERTY_ACCEPT);
+			http.setRequestProperty("Method", method);
+			if (send != null) {
+				OutputStream os = http.getOutputStream();
+				os.write(send.toString().getBytes("UTF-8"));
+				os.close();
+			}
+			return http;
+		}catch (Exception e) {
+			throw new ExceptionDTO(e); 
+		}	
+	}
+	
+	public A post(String path, JSONObject send) throws ExceptionDTO {
+		return request(path, PastleyVariable.PASTLEY_API_METHOD_POST, send);
+	}
+
+	public A get(String path, JSONObject send) throws ExceptionDTO {
+		return request(path, PastleyVariable.PASTLEY_API_METHOD_GET, send);
+	}
+
+	public A put(String path, JSONObject send) throws ExceptionDTO {
+		return request(path, PastleyVariable.PASTLEY_API_METHOD_PUT, send);
+	}
+	
+	@SuppressWarnings("unchecked")
+	private A request(String path, String method, JSONObject send) throws ExceptionDTO {
+		HttpURLConnection http = requestToHead(path, method, send);
+		try {
+			int HttpResult = http.getResponseCode();
+			JSONParser parser = new JSONParser();
+			if (HttpResult == HttpURLConnection.HTTP_OK) {
+				String response = streamString(http.getInputStream());
+				if(!PastleyValidate.isChain(response)) 
+					return null;
+				return (A) parser.parse(response);
+			} else {
+				String response = streamString(http.getErrorStream());
+				if(!PastleyValidate.isChain(response)) 
+					return null;
+				throw new ExceptionDTO((JSONObject) parser.parse(response)); 
+			}
+		}catch (Exception e) {
+			throw new ExceptionDTO(e);
+		}		
+	}
+	
+	private String streamString(InputStream is) throws ExceptionDTO {
+		try {
+			StringBuilder sb = new StringBuilder();
+			BufferedReader br = new BufferedReader(new InputStreamReader(is, "utf-8"));
+			String line = null;
+			while ((line = br.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+			br.close();
+			return sb.toString();
+		}catch (Exception e) {
+			throw new ExceptionDTO(e);
+		}
+	}
+}

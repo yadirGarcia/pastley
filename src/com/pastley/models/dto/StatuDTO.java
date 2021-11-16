@@ -15,9 +15,9 @@ public class StatuDTO implements Serializable{
 	protected boolean update;
 	protected boolean remove;
 	protected boolean filter;
-	protected boolean filter_clear;
+	protected boolean filterClear;
 	protected boolean error;
-	protected boolean error_adv;
+	protected boolean errorAdv;
 	protected boolean statu;
 	protected boolean url;
 
@@ -33,10 +33,10 @@ public class StatuDTO implements Serializable{
 		update = false;
 		remove = false;
 		filter = false;
-		filter_clear = false;
+		filterClear = false;
 		statu = false;
 		error = false;
-		error_adv = false;
+		errorAdv = false;
 		url = false;
 		renderizar = 0;
 		indexI = -1;

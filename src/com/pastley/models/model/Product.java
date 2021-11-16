@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class ProductModel implements Serializable{
+public class Product implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -15,11 +15,11 @@ public class ProductModel implements Serializable{
 	private String name;
 	private String photo;
 
-	public ProductModel(String name, String photo) {
+	public Product(String name, String photo) {
 		this(0L, name, photo);
 	}
 
-	public ProductModel(Long id, String name, String photo) {
+	public Product(Long id, String name, String photo) {
 		this.id = id;
 		this.name = name;
 		this.photo = photo;

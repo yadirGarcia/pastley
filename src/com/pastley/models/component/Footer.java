@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import com.pastley.models.model.CategoryModel;
+import com.pastley.models.model.Category;
 import com.pastley.util.Pastley;
 
 import lombok.Data;
@@ -16,7 +16,7 @@ public class Footer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private List<Item<CategoryModel>> categories;
+	private List<Item<Category>> categories;
 	private List<Item<String>> services;
 	private List<Item<String>> social;
 	

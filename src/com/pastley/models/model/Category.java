@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class CategoryModel implements Serializable {
+public class Category implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -16,15 +16,15 @@ public class CategoryModel implements Serializable {
 	private String name;
 	private String photo;
 	
-	public CategoryModel(Long id, String name) {
+	public Category(Long id, String name) {
 		this(id, 0L, name, null);
 	}
 
-	public CategoryModel(Long id, String name, String photo) {
+	public Category(Long id, String name, String photo) {
 		this(id, 0L, name, photo);
 	}
 
-	public CategoryModel(Long id, Long idProduct, String name, String photo) {
+	public Category(Long id, Long idProduct, String name, String photo) {
 		this.id = id;
 		this.idProduct = idProduct;
 		this.name = name;
