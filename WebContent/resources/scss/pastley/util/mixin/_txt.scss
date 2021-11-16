@@ -21,3 +21,22 @@
     text-overflow: ellipsis #{$important};
     white-space: nowrap #{$important};
 }
+
+@mixin mixin-text-shadow(
+    $type: (
+        var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary), 
+		var(#{$VAR-LSY-TXT-VAR-COLOR}-primary)
+    )
+) {
+    $color: nth($type, 2);
+	text-shadow: $color 1px 0px 0px, 
+                 $color 0.540302px 0.841471px 0px, 
+                 $color -0.416147px 0.909297px 0px, 
+                 $color -0.989992px 0.14112px 0px, 
+                 $color -0.653644px -0.756802px 0px, 
+                 $color 0.283662px -0.958924px 0px, 
+                 $color 0.96017px -0.279415px 0px; 
+	@if nth($type, 1) != $VAR-LSY-TXT-NULL {
+		color: nth($type, 1);
+	}       
+}

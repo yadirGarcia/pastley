@@ -1,4 +1,4 @@
-package com.pastley.component;
+package com.pastley.models.component;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import com.pastley.model.CategoryModel;
+import com.pastley.models.model.CategoryModel;
 import com.pastley.util.Pastley;
 
 import lombok.Data;

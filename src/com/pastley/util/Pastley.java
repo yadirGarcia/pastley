@@ -3,7 +3,7 @@ package com.pastley.util;
 import java.io.Serializable;
 import java.util.List;
 
-import com.pastley.component.Item;
+import com.pastley.models.component.Item;
 
 public class Pastley implements Serializable {
 

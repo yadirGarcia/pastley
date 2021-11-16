@@ -8,12 +8,12 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.pastley.component.Item;
-import com.pastley.component.MenuI;
-import com.pastley.component.MenuII;
-import com.pastley.component.MenuIII;
-import com.pastley.model.CategoryModel;
-import com.pastley.model.ProductModel;
+import com.pastley.models.component.Item;
+import com.pastley.models.component.MenuI;
+import com.pastley.models.component.MenuII;
+import com.pastley.models.component.MenuIII;
+import com.pastley.models.model.CategoryModel;
+import com.pastley.models.model.ProductModel;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

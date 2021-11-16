@@ -41,7 +41,6 @@
 			  }
           }
 		  &.#{$VAR-LSY-CLASS-ACTIVE}{
-			filter: brightness(.5);
 			& > a{
 				background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0));
 			}
@@ -72,6 +71,8 @@
 			text-transform: uppercase;
 			letter-spacing: 2px;
 			font-weight: bolder;
+			font-weight: bolder;
+			@include mixin-text-shadow();
 		}
 	}
 	&__user{
@@ -94,12 +95,13 @@
 	}
 	&__item{
 		&-info{
-			@include mixin-background-darken-brightness(currentColor, 70%);
 			&:hover{
 				background-image: none !important;
 			}
 			cursor: default;
 			.lsy-txt {
+				@include mixin-text-shadow();
+				padding-left: .1em;
 				text-transform: uppercase;
 				letter-spacing: 2px;
 				font-weight: bolder;
@@ -118,11 +120,13 @@
            width: 30px;
            @include mixin-display-flex(center, center, row, nowrap, 30px); 
            padding: .4em;
+		   @include mixin-text-shadow();
         }
         .lsy-txt {
            order: 2;
            max-width: 200px;
            @include mixin-text-truncate();
+		   font-weight: 600;
         }
         .lsy-badge{
            order: 3;

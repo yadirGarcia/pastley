@@ -1,10 +1,12 @@
-package com.pastley.model;
+package com.pastley.models.model;
 
 import java.io.Serializable;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class ProductModel implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -13,9 +15,6 @@ public class ProductModel implements Serializable{
 	private String name;
 	private String photo;
 
-	public ProductModel() {
-	}
-	
 	public ProductModel(String name, String photo) {
 		this(0L, name, photo);
 	}

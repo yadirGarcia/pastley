@@ -1,8 +1,10 @@
-package com.pastley.component;
+package com.pastley.models.component;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.pastley.util.PastleyVariable;
 
 import lombok.Data;
 
@@ -21,9 +23,6 @@ public class MenuII implements Serializable {
 
 	public void fillItems() {
 		this.items = new ArrayList<>();
-		for (int i = 0; i < 4; i++) {
-			Item<String> item = new Item<>("Item " + i, "index.xhtml", "Logo", "pi pi-user");
-			this.items.add(item);
-		}
+		this.items.add(new Item<>(null, "index.xhtml", "Cerrar Sesión", PastleyVariable.PASTLEY_ICON_OUT));
 	}
 }

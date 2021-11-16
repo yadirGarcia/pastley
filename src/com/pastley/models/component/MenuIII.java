@@ -1,4 +1,4 @@
-package com.pastley.component;
+package com.pastley.models.component;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -91,6 +91,17 @@ public class MenuIII implements Serializable {
 	public void fillSale() {
 		this.items.add(new ItemII<>(new Badge("nuevo", "lsy-bg-c-success"), true,
 				PastleyVariable.PASTLEY_MENU_TYPE_SALE, null, null));
+		// Method
+		List<ItemII<String>> method = new ArrayList<>();
+		method.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_HISTORY, null,
+				PastleyVariable.PASTLEY_ICON_HISTORY));
+		method.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_REGISTER, "pages/method/register.xhtml",
+				PastleyVariable.PASTLEY_ICON_REGISTER));
+		method.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_STATISTICS, null,
+				PastleyVariable.PASTLEY_ICON_STATISTICS));
+		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_TYPE_METHOD_PAY, null,
+				PastleyVariable.PASTLEY_ICON_TYPE_METHOD_PAY, method));
+		// Other
 		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_HISTORY, null,
 				PastleyVariable.PASTLEY_ICON_HISTORY));
 		this.items.add(new ItemII<>(null, false, PastleyVariable.PASTLEY_MENU_NAME_REGISTER, null,

@@ -1,0 +1,19 @@
+.lsy-nav-statu{
+	width: 100%;
+	position: relative;
+	background-color: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary) !important;
+	color: var(#{$VAR-LSY-TXT-VAR-COLOR}-primary) !important;
+	background-image: linear-gradient(rgba(255, 255, 255, 0.3),  rgba(0, 0, 0, .0)) !important;
+	border: none !important;
+    outline: none !important;
+    margin: 0em !important;
+    border-radius: 0 !important;
+    padding: 0.5em !important;
+	a{
+		color: var(#{$VAR-LSY-TXT-VAR-COLOR}-primary) !important;
+		font-family: var(#{$VAR-LSY-TXT-VAR-FONT-FAMILY}-primary) !important;
+		&.ui-breadcrumb-home-icon{
+			@include mixin-text-shadow();
+		}
+	}
+}

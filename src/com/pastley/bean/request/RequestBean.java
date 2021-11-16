@@ -1,6 +1,9 @@
 package com.pastley.bean.request;
 
 import org.slf4j.LoggerFactory;
+
+import com.pastley.util.PastleyValidate;
+
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -33,11 +36,13 @@ public class RequestBean implements Serializable {
 
 	public void direct(String path) {
 		LOGGER.info("Accessing method: direct(String path)");
+		if(!PastleyValidate.isChain(path))
+			return;
 		this.init();
 		try {
 			this.external.redirect(this.url + "/" + path);
 		} catch (IOException e) {
-			LOGGER.error("Accessing method: direct(String path)");
+			LOGGER.error("Error accessing method: direct(String path)");
 		}
 	}
 }

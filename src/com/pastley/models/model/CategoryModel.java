@@ -1,10 +1,12 @@
-package com.pastley.model;
+package com.pastley.models.model;
 
 import java.io.Serializable;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class CategoryModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,10 +15,6 @@ public class CategoryModel implements Serializable {
 	private Long idProduct;
 	private String name;
 	private String photo;
-
-	public CategoryModel() {
-		this(0L, 0L, null, null);
-	}
 	
 	public CategoryModel(Long id, String name) {
 		this(id, 0L, name, null);

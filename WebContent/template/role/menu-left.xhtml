@@ -31,7 +31,7 @@
 			<ul>
 				<ui:repeat var="a" value="#{menu.menuIII.items}">
 					<li class="lsy-menu-user-left__item #{a.items != null ? 'lsy-menu-user-left__item-accordion' : ''}">
-						<p:commandLink
+						<p:commandLink action="#{requestApp.direct(a.path)}"
 							styleClass="#{a.info == true ? 'lsy-menu-user-left__item-info' : ''}">
 							<h:outputText styleClass="lsy-icon #{a.icon}" rendered="#{a.icon != null}"/>
 							<h:outputText value="#{a.entity}" styleClass="lsy-txt" />
@@ -46,7 +46,7 @@
 							<ul>
 								<ui:repeat var="aa" value="#{a.items}">
 									<li class="lsy-menu-user-left__item">
-										<p:commandLink>
+										<p:commandLink action="#{requestApp.direct(aa.path)}"> 
 											<h:outputText styleClass="lsy-icon #{aa.icon}" />
 											<h:outputText value="#{aa.entity}" styleClass="lsy-txt" />
 											<h:outputText rendered="#{aa.badge != null}"

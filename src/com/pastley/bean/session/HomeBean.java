@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import com.pastley.component.Footer;
+import com.pastley.models.component.Footer;
 
 import lombok.Data;
 

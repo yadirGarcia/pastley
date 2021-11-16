@@ -1,0 +1,54 @@
+.lsy-button{
+	overflow: hidden !important;
+	&.ui-state-default{
+		background-image: none !important;
+	}
+	&.ui-button{
+        margin: 0em auto;
+    	padding: 0.1em 0.7em;
+    	outline: none !important;  
+    }
+	@each $key, $value in getMap($VAR-LSY-COLORS, (alert)){
+		&.lsy-bg-c-#{$key}{
+			.ui-icon{
+				overflow: visible !important;
+				@include mixin-text-shadow((
+					var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-#{$key}),
+					var(#{$VAR-LSY-TXT-VAR-COLOR}-#{$key})
+				));
+			}
+		}
+	}
+}
+
+.lsy-button-icon{
+	&.ui-state-default{
+		width: 40px !important;
+		height: 40px !important;
+		border-color: transparent !important;
+		position: relative !important;
+		outline: none !important;
+	}
+	.ui-button-text{
+		display: none !important;
+	}
+	.ui-icon{
+		top:50% !important;
+		left: 50% !important;
+		margin: 0em !important;
+		transform: translate(-50%, -40%) !important;
+	}
+	@each $key, $value in getMap($VAR-LSY-COLORS, (alert)){
+		&.lsy-bg-c-#{$key}{
+			background: var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-#{$key}) !important;
+            color: var(#{$VAR-LSY-TXT-VAR-COLOR}-#{$key}) !important;
+            border-color: var(#{$VAR-LSY-TXT-VAR-COLOR}-#{$key}) !important;
+            .ui-icon{
+				@include mixin-text-shadow((
+					var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-#{$key}),
+					var(#{$VAR-LSY-TXT-VAR-COLOR}-#{$key})
+				));	
+			}
+		}
+	}
+}

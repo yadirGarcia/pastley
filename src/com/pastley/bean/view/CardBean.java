@@ -8,8 +8,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import com.pastley.component.Card;
-import com.pastley.component.Link;
+import com.pastley.models.component.Card;
+import com.pastley.models.component.Link;
 
 import lombok.Data;
 
