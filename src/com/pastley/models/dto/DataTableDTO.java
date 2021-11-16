@@ -6,12 +6,14 @@ import java.util.List;
 
 import org.primefaces.model.FilterMeta;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-public class DataTableDTO<A> implements Serializable {
+public class DataTableDTO<A> extends StatuDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
