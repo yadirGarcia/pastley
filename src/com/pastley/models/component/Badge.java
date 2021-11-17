@@ -1,10 +1,5 @@
 package com.pastley.models.component;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class Badge extends Component{
 	
 	private static final long serialVersionUID = 1L;
@@ -22,5 +17,17 @@ public class Badge extends Component{
 	public Badge(String name, String id, String styleClass, String icon) {
 		super(id, styleClass, icon);
 		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 }

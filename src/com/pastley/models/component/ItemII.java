@@ -2,13 +2,6 @@ package com.pastley.models.component;
 
 import java.util.List;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@NoArgsConstructor
 public class ItemII<A> extends Item<A> {
 
 	private static final long serialVersionUID = 1L;
@@ -35,5 +28,33 @@ public class ItemII<A> extends Item<A> {
 		this.badge = badge;
 		this.info = info;
 		this.items = items;
+	}
+
+	public Badge getBadge() {
+		return badge;
+	}
+
+	public void setBadge(Badge badge) {
+		this.badge = badge;
+	}
+
+	public boolean isInfo() {
+		return info;
+	}
+
+	public void setInfo(boolean info) {
+		this.info = info;
+	}
+
+	public List<ItemII<A>> getItems() {
+		return items;
+	}
+
+	public void setItems(List<ItemII<A>> items) {
+		this.items = items;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 }

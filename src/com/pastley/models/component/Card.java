@@ -2,17 +2,6 @@ package com.pastley.models.component;
 
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 public class Card extends Component {
 
 	private static final long serialVersionUID = 1L;
@@ -30,5 +19,49 @@ public class Card extends Component {
 		this.name = name;
 		this.isPrice = isPrice;
 		this.links = links;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public boolean isPrice() {
+		return isPrice;
+	}
+
+	public void setPrice(boolean isPrice) {
+		this.isPrice = isPrice;
+	}
+
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 }

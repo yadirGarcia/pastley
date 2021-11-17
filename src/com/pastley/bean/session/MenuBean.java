@@ -15,13 +15,8 @@ import com.pastley.models.component.MenuIII;
 import com.pastley.models.model.Category;
 import com.pastley.models.model.Product;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @ManagedBean(name = "menu")
 @SessionScoped
-@Data
-@NoArgsConstructor
 public class MenuBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -74,5 +69,33 @@ public class MenuBean implements Serializable {
 			}
 			this.menuI.getLevelII().add(listProduct);
 		}
+	}
+
+	public MenuI<Category, Product> getMenuI() {
+		return menuI;
+	}
+
+	public void setMenuI(MenuI<Category, Product> menuI) {
+		this.menuI = menuI;
+	}
+
+	public MenuII getMenuII() {
+		return menuII;
+	}
+
+	public void setMenuII(MenuII menuII) {
+		this.menuII = menuII;
+	}
+
+	public MenuIII getMenuIII() {
+		return menuIII;
+	}
+
+	public void setMenuIII(MenuIII menuIII) {
+		this.menuIII = menuIII;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 }

@@ -18,10 +18,10 @@ public class PastleyVariable {
 			+ PASTLEY_API_GATEWAY_PORT + "/";
 
 	/* API MICROSERVICE SALE */
-	public static final String PASTLEY_API_MICROSERVICE_SALE_SERVICE_SALE = "sale";
-	public static final String PASTLEY_API_MICROSERVICE_SALE_SERVICE_METHOD = "method";
-	public static final String PASTLEY_API_MICROSERVICE_SALE_SERVICE_CART= "cart";
-	public static final String PASTLEY_API_MICROSERVICE_SALE_SERVICE_SALE_DETAIL = "sale-detail";
+	public static final String PASTLEY_API_MICROSERVICE_SALE_SERVICE_SALE = PASTLEY_API_GATEWAY_PATH+"sale";
+	public static final String PASTLEY_API_MICROSERVICE_SALE_SERVICE_METHOD = PASTLEY_API_GATEWAY_PATH+"method";
+	public static final String PASTLEY_API_MICROSERVICE_SALE_SERVICE_CART= PASTLEY_API_GATEWAY_PATH+"cart";
+	public static final String PASTLEY_API_MICROSERVICE_SALE_SERVICE_SALE_DETAIL = PASTLEY_API_GATEWAY_PATH+"sale-detail";
 
 	/* NAME MENU */
 	public static final String PASTLEY_MENU_NAME_HISTORY = "Historial";

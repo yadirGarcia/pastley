@@ -1,0 +1,53 @@
+<ui:composition template="../../template/template-role.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="tmp-section">
+		<ui:decorate template="component/header.xhtml">
+			<ui:define name="tmp-section-component-statu--header">
+				<p:menuitem value="Historial" url="all.xhtml" styleClass="lsy-link" />
+			</ui:define>
+			<ui:define name="tmp-section-component-header-subtitle--header">Historial</ui:define>
+		</ui:decorate>
+
+		<h:panelGroup layout="block" styleClass="lsy-container-form">
+			<p:dataTable id="lsy-table" widgetVar="lsy-table" var="a"
+				value="#{table.methodPayEntity}" styleClass="lsy-table"
+				emptyMessage="No se encontro ningún metodo de pago."
+				rowKey="#{a.id}" rowSelectMode="add" paginator="true" rows="20"
+				scrollable="true" scrollWidth="auto"
+				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} 
+							   	   {PreviousPageLink}    {CurrentPageReport} 
+							       {NextPageLink}        {LastPageLink}"
+				selection="#{table.methodPay.select}"
+				filteredValue="#{table.methodPay.filter}"
+				rowsPerPageTemplate="5,10,15,20,50,100">
+
+				<f:facet name="header">
+					<p:outputPanel layout="block"
+						styleClass="p-d-flex p-jc-end p-ac-center">
+						<h:outputText value="Buscar:" styleClass="p-mt-1 p-mr-2" />
+						<p:inputText id="globalFilter"
+							onkeyup="PF('lsy-table').filter()" />
+					</p:outputPanel>
+					<p:outputPanel layout="block"
+						styleClass="p-d-flex p-jc-center p-ac-center p-p-3">
+						<h:outputLabel styleClass="scrjk-title pastley-containert-w-auto"
+							value="Metodo de Pago" />
+					</p:outputPanel>
+				</f:facet>
+				<p:column headerText="Id" footerText="Id" styleClass="p-text-center"
+					filterBy="#{a.id}" sortBy="#{a.id}">
+					<p:rowToggler />
+					<h:outputText value="#{a.id}"
+						styleClass="pastley-class scrjk-statu-text-dark" />
+				</p:column>
+			</p:dataTable>
+
+		</h:panelGroup>
+
+	</ui:define>
+</ui:composition>

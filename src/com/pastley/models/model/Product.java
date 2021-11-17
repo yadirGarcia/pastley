@@ -2,11 +2,6 @@ package com.pastley.models.model;
 
 import java.io.Serializable;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
 public class Product implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -23,5 +18,33 @@ public class Product implements Serializable{
 		this.id = id;
 		this.name = name;
 		this.photo = photo;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 }

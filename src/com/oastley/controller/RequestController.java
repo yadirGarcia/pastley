@@ -15,11 +15,6 @@ import com.pastley.models.dto.ExceptionDTO;
 import com.pastley.util.PastleyValidate;
 import com.pastley.util.PastleyVariable;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
 public class RequestController<A> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -94,5 +89,25 @@ public class RequestController<A> implements Serializable {
 		}catch (Exception e) {
 			throw new ExceptionDTO(e);
 		}
+	}
+
+	public String getPROPERTY_TYPE() {
+		return PROPERTY_TYPE;
+	}
+
+	public void setPROPERTY_TYPE(String pROPERTY_TYPE) {
+		PROPERTY_TYPE = pROPERTY_TYPE;
+	}
+
+	public String getPROPERTY_ACCEPT() {
+		return PROPERTY_ACCEPT;
+	}
+
+	public void setPROPERTY_ACCEPT(String pROPERTY_ACCEPT) {
+		PROPERTY_ACCEPT = pROPERTY_ACCEPT;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 }

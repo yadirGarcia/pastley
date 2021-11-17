@@ -5,9 +5,6 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import lombok.Data;
-
-@Data
 @ManagedBean(name = "typeDocument")
 @ViewScoped
 public class TypeDocumentBean implements Serializable{

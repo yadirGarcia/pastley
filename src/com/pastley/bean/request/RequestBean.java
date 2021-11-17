@@ -14,11 +14,8 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
-import lombok.Data;
-
 @ManagedBean(name = "requestApp")
 @RequestScoped
-@Data
 public class RequestBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -44,5 +41,37 @@ public class RequestBean implements Serializable {
 		} catch (IOException e) {
 			LOGGER.error("Error accessing method: direct(String path)");
 		}
+	}
+
+	public FacesContext getContext() {
+		return context;
+	}
+
+	public void setContext(FacesContext context) {
+		this.context = context;
+	}
+
+	public ExternalContext getExternal() {
+		return external;
+	}
+
+	public void setExternal(ExternalContext external) {
+		this.external = external;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public static Logger getLogger() {
+		return LOGGER;
 	}
 }

@@ -1,12 +1,5 @@
 package com.pastley.models.component;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@NoArgsConstructor
 public class Item<A> extends Component{
 
 	private static final long serialVersionUID = 1L;
@@ -34,5 +27,25 @@ public class Item<A> extends Component{
 		super(id, styleClass, title, null, icon);
 		this.entity = entity;
 		this.path = path;
+	}
+
+	public A getEntity() {
+		return entity;
+	}
+
+	public void setEntity(A entity) {
+		this.entity = entity;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 }

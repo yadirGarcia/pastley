@@ -11,9 +11,6 @@ import javax.faces.bean.ViewScoped;
 import com.pastley.models.component.Card;
 import com.pastley.models.component.Link;
 
-import lombok.Data;
-
-@Data
 @ManagedBean(name = "card")
 @ViewScoped
 public class CardBean implements Serializable {
@@ -43,5 +40,13 @@ public class CardBean implements Serializable {
 	public List<Card> getCardsUser() {
 		initCardUser();
 		return cardsUser;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public void setCardsUser(List<Card> cardsUser) {
+		this.cardsUser = cardsUser;
 	}
 }

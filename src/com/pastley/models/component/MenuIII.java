@@ -6,9 +6,6 @@ import java.util.List;
 
 import com.pastley.util.PastleyVariable;
 
-import lombok.Data;
-
-@Data
 public class MenuIII implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -110,5 +107,25 @@ public class MenuIII implements Serializable {
 				PastleyVariable.PASTLEY_ICON_STATISTICS));
 		this.items.add(new ItemII<>(new Badge("info", "lsy-bg-c-info"), false, PastleyVariable.PASTLEY_MENU_NAME_MONTH,
 				null, PastleyVariable.PASTLEY_ICON_MONTH));
+	}
+
+	public Item<String> getLogo() {
+		return logo;
+	}
+
+	public void setLogo(Item<String> logo) {
+		this.logo = logo;
+	}
+
+	public List<ItemII<String>> getItems() {
+		return items;
+	}
+
+	public void setItems(List<ItemII<String>> items) {
+		this.items = items;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 }
