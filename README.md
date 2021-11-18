@@ -30,8 +30,6 @@ Acontinuación se muestra la paleta de colores que se uso en el software
 ## Contribuyentes
 
 - [@yadirGarcia](https://github.com/yadirGarcia)
-- [@soleimygomez](https://github.com/soleimygomez)
-- [@jhonatanbeltran](https://github.com/jhonatanbeltran)
 
 **¡Las contribuciones son siempre bienvenidas!**
 
