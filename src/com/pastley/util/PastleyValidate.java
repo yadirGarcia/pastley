@@ -1,5 +1,7 @@
 package com.pastley.util;
 
+import java.util.List;
+
 public class PastleyValidate {
 	
 	/**
@@ -10,5 +12,23 @@ public class PastleyValidate {
 	 */
 	public static boolean isChain(String chain) {
 		return chain != null && chain.trim().length() > 0;
+	}
+	
+	public static int toInteger(String str) {
+		try {
+			return Integer.valueOf(str);
+		} catch (NumberFormatException ex) {
+			return 0;
+		}
+	}
+	
+	/**
+	 * Method that allows to verify if a list is valid.
+	 * @param <E>,  Represents the data type of the list.
+	 * @param list, Represents the list.
+	 * @return true if it meets false if not.
+	 */
+	public static <E> boolean isList(List<E> list) {
+		return (list != null && list.size() > 0);
 	}
 }

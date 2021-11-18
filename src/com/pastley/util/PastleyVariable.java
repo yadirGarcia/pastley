@@ -4,6 +4,17 @@ public class PastleyVariable {
 
 	/* APP */
 	public static final String PASTLEY_APP_NAME = "Pastley";
+	
+	/* ARRAY */
+	public static final char[] PASTLEY_ARRAY_NUMBER = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+	public static final String[] PASTLEY_ARRAY_DATE = { "January", "February", "March", "April", "May", "June", "July",
+			"August", "September", "October", "November", "December" };
+	
+	/* DATE */
+	public static final String PASTLEY_DATE_ZONA_ID = "America/Bogota";
+	public static final String PASTLEY_DATE_FORMAT_DATE = "yyyy/MM/dd";
+	public static final String PASTLEY_DATE_FORMAT_HOUR = "HH:mm:ss";
+	public static final String PASTLEY_DATE_TIME_FORMAT = PASTLEY_DATE_FORMAT_DATE + " " + PASTLEY_DATE_FORMAT_HOUR;
 
 	/* API */
 	public static final String PASTLEY_API_PROPERTY_ACCEPT_JSON = "application/json";
@@ -17,6 +28,13 @@ public class PastleyVariable {
 	public static final String PASTLEY_API_GATEWAY_PATH = "http://" + PASTLEY_API_GATEWAY_HOST + ":"
 			+ PASTLEY_API_GATEWAY_PORT + "/";
 
+	/* REQUEST */
+	public static final String PASTLEY_API_REQUEST_CREATE = "create";
+	
+	/* API MICROSERVICE SALE */
+	public static final String PASTLEY_API_MICROSERVICE_PRODUCT_SERVICE_PRODUCT = PASTLEY_API_GATEWAY_PATH+"product";
+	public static final String PASTLEY_API_MICROSERVICE_PRODUCT_SERVICE_CATEGORY = PASTLEY_API_GATEWAY_PATH+"category";
+	
 	/* API MICROSERVICE SALE */
 	public static final String PASTLEY_API_MICROSERVICE_SALE_SERVICE_SALE = PASTLEY_API_GATEWAY_PATH+"sale";
 	public static final String PASTLEY_API_MICROSERVICE_SALE_SERVICE_METHOD = PASTLEY_API_GATEWAY_PATH+"method";

@@ -45,6 +45,11 @@ public class StatuDTO implements Serializable{
 		this.update = update;
 	}
 	
+	public void register(boolean error, boolean register) {
+		this.error = error;
+		this.register = register;
+	}
+	
 	public void remove(boolean error, boolean remove) {
 		this.error = error;
 		this.remove = remove;

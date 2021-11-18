@@ -1,0 +1,100 @@
+<ui:composition template="../../template/template-role.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="tmp-section">
+		<ui:decorate template="component/header.xhtml">
+			<ui:define name="tmp-section-component-statu--header">
+				<p:menuitem value="Historial" url="all.xhtml" styleClass="lsy-link" />
+			</ui:define>
+			<ui:define name="tmp-section-component-header-subtitle--header">Historial</ui:define>
+		</ui:decorate>
+
+		<h:panelGroup layout="block" styleClass="p-p-3">
+			<p:dataTable id="lsy-table" widgetVar="lsy-table" var="a"
+				value="#{table.productEntity}" styleClass="lsy-table"
+				emptyMessage="No se encontro ningún metodo de pago."
+				rowKey="#{a.id}" rowSelectMode="add" paginator="true" rows="20"
+				scrollable="true" scrollWidth="auto"
+				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} 
+							   	   {PreviousPageLink}    {CurrentPageReport} 
+							       {NextPageLink}        {LastPageLink}"
+				selection="#{product.crud.select}"
+				filteredValue="#{table.productTable.filterBy}"
+				rowsPerPageTemplate="5,10,15,20,50,100">
+
+				<f:facet name="header">
+					<p:outputPanel layout="block"
+						styleClass="p-d-flex p-jc-end p-ac-center">
+						<h:outputText value="Buscar:" styleClass="p-mt-1 p-mr-2" />
+						<p:inputText id="globalFilter" onkeyup="PF('lsy-table').filter()" />
+					</p:outputPanel>
+					<p:outputPanel layout="block"
+						styleClass="p-d-flex p-jc-center p-ac-center p-p-3">
+						<h:outputLabel styleClass="scrjk-title pastley-containert-w-auto"
+							value="Producto " />
+						<h:outputLabel class="p-as-end"
+							value="(#{fn:length(table.productEntity)} resultados)." />
+					</p:outputPanel>
+				</f:facet>
+				<!-- Column -->
+				<p:column headerText="Id" footerText="Id" styleClass="p-text-center"
+					filterBy="#{a.id}" sortBy="#{a.id}">
+					<h:outputText value="#{a.id}" />
+				</p:column>
+				<p:column headerText="Nombre" footerText="Nombre"
+					styleClass="p-text-center" filterBy="#{a.name}" sortBy="#{a.name}"
+					filterMatchMode="contains">
+					<a href="product.xhtml?id-product=#{a.id}" class="scrjk-link">
+						<h:outputText value="#{a.name}" />
+					</a>
+				</p:column>
+				<p:column headerText="Stock" footerText="Stock"
+					styleClass="p-text-center" filterBy="#{a.stock}"
+					sortBy="#{a.stock}" filterFunction="#{product.filterByInteger}">
+					<h:panelGroup layout="block"
+						styleClass="p-d-flex p-jc-center p-ai-center p-flex-column">
+						<h:outputText value="#{a.stock}"
+							styleClass="lsy-badge   
+								 #{(a.stock gt a.stockMin) ? 'lsy-bg-c-success' : 
+								(a.stock == a.stockMin ? 'lsy-bg-c-warning' : 'lsy-bg-c-danger')}" />
+						<h:outputText value="#{a.stockMin}"
+							styleClass="lsy-badge lsy-bg-c-success
+								#{product.crud.statu.statu ? 'p-mt-4' : 'p-mt-1'}" />
+					</h:panelGroup>
+				</p:column>
+				<p:column headerText="Fecha" footerText="Fecha"
+					field="dateWithoutTime" styleClass="p-text-center"
+					filterMatchMode="range">
+					<f:facet name="filter">
+						<p:datePicker selectionMode="range"
+							onchange="PF('lsy-table').filter()" />
+					</f:facet>
+					<p:calendar value="#{a.dateRegister}" locale="de"
+						pattern="dd/MM/yyyy hh:mm:ss" disabled="true" />
+				</p:column>
+				<p:column headerText="Estado" footerText="Estado"
+					styleClass="p-text-center" field="estado" filterMatchMode="exact">
+					<f:facet name="filter">
+						<p:selectOneMenu
+							onchange="PF('lsy-table').filter()">
+							<f:selectItem itemLabel="Todos" itemValue="#{null}"
+								noSelectionOption="true" />
+							<f:selectItem itemLabel="Activo" itemValue="true" />
+							<f:selectItem itemLabel="Bloqueado" itemValue="false" />
+						</p:selectOneMenu>
+					</f:facet>
+					<p:commandButton value="#{a.estado ? 'Activo' : 'Bloqueado'}"
+						styleClass="lsy-button 
+						#{a.estado ? 'lsy-bg-c-success' :  'lsy-bg-c-danger'}">
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+
+		</h:panelGroup>
+
+	</ui:define>
+</ui:composition>

@@ -7,25 +7,21 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	private Long idProduct;
-	private String name;
+    private String name;
+    private boolean statu;
+	private String dateRegister;
+	private String dateUpdate;
 	private String photo;
 	
 	public Category() {
-		
 	}
 	
 	public Category(Long id, String name) {
-		this(id, 0L, name, null);
+		this(id, name, null);
 	}
 
 	public Category(Long id, String name, String photo) {
-		this(id, 0L, name, photo);
-	}
-
-	public Category(Long id, Long idProduct, String name, String photo) {
 		this.id = id;
-		this.idProduct = idProduct;
 		this.name = name;
 		this.photo = photo;
 	}
@@ -38,12 +34,28 @@ public class Category implements Serializable {
 		this.id = id;
 	}
 
-	public Long getIdProduct() {
-		return idProduct;
+	public boolean isStatu() {
+		return statu;
 	}
 
-	public void setIdProduct(Long idProduct) {
-		this.idProduct = idProduct;
+	public void setStatu(boolean statu) {
+		this.statu = statu;
+	}
+
+	public String getDateRegister() {
+		return dateRegister;
+	}
+
+	public void setDateRegister(String dateRegister) {
+		this.dateRegister = dateRegister;
+	}
+
+	public String getDateUpdate() {
+		return dateUpdate;
+	}
+
+	public void setDateUpdate(String dateUpdate) {
+		this.dateUpdate = dateUpdate;
 	}
 
 	public String getName() {
