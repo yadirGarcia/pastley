@@ -29,7 +29,9 @@ public class PastleyVariable {
 			+ PASTLEY_API_GATEWAY_PORT + "/";
 
 	/* REQUEST */
-	public static final String PASTLEY_API_REQUEST_CREATE = "create";
+	public static final String PASTLEY_API_REQUEST_CREATE = "";
+	public static final String PASTLEY_API_REQUEST_UPDATE_STATU = "update/statu";
+	public static final String PASTLEY_API_REQUEST_ALL_GET_STATU = "all/find/statu/";
 	
 	/* API MICROSERVICE SALE */
 	public static final String PASTLEY_API_MICROSERVICE_PRODUCT_SERVICE_PRODUCT = PASTLEY_API_GATEWAY_PATH+"product";

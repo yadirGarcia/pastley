@@ -1,0 +1,74 @@
+.lsy-loading{
+	min-height: 100vh;
+  	max-height: 100vh;
+  	background-color: transparent;
+  	overflow: visible;
+  	width: 100%;
+  	overflow: hidden;
+  	overflow-y: auto;
+  	background: rgba(52, 51, 47, 0.7);
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	flex-direction: row;
+  	flex-wrap: none;
+  	height: auto;
+	&.lsy-loading-fixed{
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+	}
+	&.#{$VAR-LSY-CLASS-ACTIVE}{
+		display: flex !important;
+	}
+	h2 {
+    	position: relative;
+    	margin: 0;
+    	padding: 0em;
+    	font-weight: 100;
+    	text-align: center;
+    	font-family: var(#{$VAR-LSY-TXT-VAR-FONT-FAMILY}-primary);
+    	font-size: 7em; 
+		span {
+      		position: relative;
+      		color: transparent;
+      		font-weight: none;
+      		-webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+      		transition: all 1s linear;
+      		margin-left: .2em;
+      		text-transform: uppercase; 
+			display: inline-block;
+			span{
+				position: absolute;
+        		top: 0px;
+        		left: 0px;
+        		margin-left: 0em;
+				&:first-of-type {
+          			z-index: 2;
+          			-webkit-text-stroke: 1px var(#{$VAR-LSY-TXT-VAR-BACKGROUND}-primary);
+          			animation: lsy-animation-loading-before 2s ease-in-out infinite; 
+				}
+				&:last-of-type {
+          			z-index: 1;
+          			-webkit-text-stroke: 1px  var(#{$VAR-LSY-TXT-VAR-COLOR}-primary);
+					animation: lsy-animation-loading-after 2s ease-in-out infinite;
+          			color: transparent; 
+				}
+			}
+		}
+	}
+	@media screen and (max-width: 1300px) {
+    	h2 {
+      		font-size: 5em; 
+		} 
+	}
+	@media screen and (max-width: 700px) {
+		h2{
+			font-size: 4em; 
+			span{
+				display: block;
+			}
+		}
+	}
+}

@@ -17,6 +17,11 @@
 </h:head>
 <h:body>
 
+	<h:panelGroup layout="block" styleClass="lsy-loading-container" id="lsy-loading-container">
+		<ui:include src="../pages/component/loading.xhtml"/>
+		<ui:include src="../pages/component/loading-remove.xhtml"/>
+	</h:panelGroup>
+
 	<h:form>
 		<ui:insert name="tmp-header">
 			<ui:include src="home/header.xhtml" />

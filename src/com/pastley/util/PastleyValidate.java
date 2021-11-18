@@ -14,6 +14,14 @@ public class PastleyValidate {
 		return chain != null && chain.trim().length() > 0;
 	}
 	
+	public static boolean isObject(Object object) {
+		return object != null;
+	}
+	
+	public static boolean isLong(Long value) {
+		return value != null && value >=0;
+	}
+	
 	public static int toInteger(String str) {
 		try {
 			return Integer.valueOf(str);

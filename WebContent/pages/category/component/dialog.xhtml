@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<p:dialog showEffect="explode" styleClass="lsy-table-dialog"
+		header="#{category.crud.statu.title} #{category.crud.statu.subtitle}"
+		widgetVar="lsy-table-dialog" id="lsy-table-dialog" resizable="false"
+		modal="true" width="50%">
+		<h:form>
+			<h:panelGroup layout="block">
+				<h:panelGroup layout="block"
+					styleClass="ui-fluid p-formgrid p-d-grid p-jc-star p-ai-center">
+					<h:panelGroup layout="block" styleClass="p-field p-col p-md">
+						<p:outputLabel for="add-categoria-nombre" value="Nombre:" />
+						<p:inputText id="add-categoria-nombre"
+							value="#{category.crud.select.name}" />
+					</h:panelGroup>
+				</h:panelGroup>
+				<h:panelGroup layout="block">
+					<p:commandButton
+						icon="fa fa-fw #{category.crud.statu.statu ? 'fa-plus' : 'fa-edit'}"
+						value="#{category.crud.statu.title}"
+						title="#{category.crud.statu.title}"
+						update="@(.lsy-table-dialog),  @(.lsy-table),  @(.lsy-alert)"
+						styleClass="lsy-button p-mb-2 
+							#{category.crud.statu.statu ? 'lsy-bg-c-success' : 'lsy-bg-c-danger'}" />
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:form>
+	</p:dialog>
+</ui:composition>

@@ -4,32 +4,43 @@ import java.io.Serializable;
 
 import org.json.simple.JSONObject;
 
-public class ExceptionDTO extends Exception implements Serializable{
+import com.pastley.util.PastleyValidate;
+
+public class ExceptionDTO extends Exception implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String exception;
 	private String path;
 	private String message;
 	private int statu;
-	
-	
+
 	public ExceptionDTO(Exception e) {
-		if(e != null) {
+		if (e != null) {
 			this.exception = e.getLocalizedMessage();
 			this.path = e.getLocalizedMessage();
 			this.message = e.getMessage();
 			this.statu = 404;
 		}
 	}
-	
+
 	public ExceptionDTO(JSONObject object) {
-		if(object != null) {
-			this.exception = String.valueOf(object.get("exception"));
-			this.path = String.valueOf(object.get("path"));
-			this.message = String.valueOf(object.get("message"));
-			this.statu = Integer.parseInt(String.valueOf(object.get("statu")));
+		if (object != null) {
+			this.exception = PastleyValidate.isObject(object.get("exception")) ? String.valueOf(object.get("exception"))
+					: "N/A";
+			this.path = PastleyValidate.isObject(object.get("path")) ? String.valueOf(object.get("path")) : "N/A";
+			this.message = PastleyValidate.isObject(object.get("message")) ? String.valueOf(object.get("message"))
+					: "N/A";
+			this.statu = PastleyValidate.isObject(object.get("message"))
+					? Integer.parseInt(String.valueOf(object.get("message")))
+					: 500;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "ExceptionDTO [exception=" + exception + ", path=" + path + ", message=" + message + ", statu=" + statu
+				+ "]";
 	}
 
 	public String getException() {

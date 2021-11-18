@@ -8,12 +8,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import org.json.simple.JSONObject;
+
 import com.oastley.controller.RequestController;
 import com.pastley.bean.view.DataTableBean;
 import com.pastley.models.dto.CrudDTO;
 import com.pastley.models.dto.ExceptionDTO;
 import com.pastley.models.dto.FilterDTO;
 import com.pastley.models.dto.InitDTO;
+import com.pastley.models.dto.ListDTO;
 import com.pastley.models.dto.RequestDTO;
 import com.pastley.models.model.Product;
 import com.pastley.util.PastleyVariable;
@@ -43,16 +46,59 @@ public class ProductBean implements Serializable {
 	public void initOther() {
 		this.product = InitDTO.product(true);
 	}
+	
+	public boolean replace(Product product) {
+		boolean statu = false;
+		if (product != null) {
+			ListDTO<Product> list = new ListDTO<>(tableBean.getProductEntity());
+			statu = list.replace(product);
+			if (statu) {
+				tableBean.getProductTable().setEntity(list.getList());
+			} else {
+				tableBean.initProduct();
+			}
+		}
+		return statu;
+	}
 
 	public void create() {
 		crud.insert(true, false, true);
-		RequestController<Product> request = new RequestController<>();
 		try {
+			RequestController<JSONObject> request = new RequestController<>();
 			RequestDTO send = new RequestDTO();
-			Product create = request.post(PastleyVariable.PASTLEY_API_MICROSERVICE_PRODUCT_SERVICE_PRODUCT + "/"
-					+ PastleyVariable.PASTLEY_API_REQUEST_CREATE, send.getObject());
-			crud.getAlert().success("Se ha registrado el producto con el id "+create.getId());
+			Product product = new Product(
+					request.post(PastleyVariable.PASTLEY_API_MICROSERVICE_PRODUCT_SERVICE_PRODUCT, send.add(this.product)));
+			crud.getAlert().success("Se ha registrado el producto con el id " + product.getId());
 			crud.insert(false, true, false);
+		} catch (ExceptionDTO e) {
+			crud.getAlert().error(e.getMessage());
+		}
+		crud.getAlert().toPrintln(true);
+	}
+
+	public void update(Long id) {
+		crud.update(true, false, true);
+		try {
+			RequestController<JSONObject> request = new RequestController<>();
+			Product product = new Product(request.put("http://localhost:8080/product/update/statu/1", null));
+			crud.getAlert().success("Se ha actualizado el estado del producto con el id " + product.getId());
+			crud.update(false, true, false);
+			replace(product);
+		} catch (ExceptionDTO e) {
+			crud.getAlert().error(e.getMessage());
+		}
+		crud.getAlert().toPrintln(true);
+	}
+	
+	public void update() {
+		crud.update(true, false, true);
+		try {
+			RequestController<JSONObject> request = new RequestController<>();
+			RequestDTO send = new RequestDTO();
+			Product product = new Product(request.put("http://localhost:8080/product/", send.add(this.product)));
+			crud.getAlert().success("Se ha actualizado el producto con el id " + product.getId());
+			crud.update(false, true, false);
+			replace(product);
 		} catch (ExceptionDTO e) {
 			crud.getAlert().error(e.getMessage());
 		}

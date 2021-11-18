@@ -18,6 +18,10 @@
 <h:body>
 
 	<h:form>
+		<h:panelGroup layout="block" styleClass="lsy-alert" id="lsy-alert">
+			<p:growl showDetail="true"/>
+		</h:panelGroup>
+		
 		<h:panelGroup layout="block" styleClass="lsy-structure-home">
 			<ui:insert name="tmp-header">
 				<h:panelGroup layout="block" styleClass="lsy-structure-home__top">
@@ -35,7 +39,7 @@
 			</h:panelGroup>
 		</h:panelGroup>
 	</h:form>
-
+	<ui:insert name="tmp-component-dialog" />
 	<h:outputScript library="js" name="pastley.js" />
 	<h:outputScript>
 		pastleyMenuLeft(".lsy-menu-user-left");

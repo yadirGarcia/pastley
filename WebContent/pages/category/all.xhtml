@@ -1,0 +1,126 @@
+<ui:composition template="../../template/template-role.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="tmp-section">
+		<ui:decorate template="component/header.xhtml">
+			<ui:define name="tmp-section-component-statu--header">
+				<p:menuitem value="Historial" url="all.xhtml" styleClass="lsy-link" />
+			</ui:define>
+			<ui:define name="tmp-section-component-header-subtitle--header">Historial</ui:define>
+		</ui:decorate>
+
+		<h:panelGroup layout="block" styleClass="p-p-3">
+			<h:panelGroup layout="block" styleClass="lsy-table-actions-top"
+				id="lsy-table-actions-top">
+				<p:separator styleClass="p-mt-4" />
+				<h:panelGroup layout="block"
+					styleClass="d-p-flex p-jc-star p-ai-center p-m-4">
+					<p:commandButton value="Nuevo" icon="pi pi-plus"
+						actionListener="#{category.open(null, false, false)}"
+						update="@(.lsy-table-dialog)" title="Nuevo"
+						styleClass="lsy-button lsy-bg-c-success" />
+					<p:commandButton icon="fa fa-fw fa-sync" value="Actualizar"
+						title="Actualizar" action="#{category.sync()}"
+						styleClass="lsy-button lsy-bg-c-info p-ml-3"
+						onclick="PF('lsy-table').clearFilters()"
+						update="@(.lsy-table), @(.lsy-alert})" />
+					<p:commandButton icon="fa fa-fw fa-brush" value="Limpiar"
+						title="Limpiar Filtros"
+						styleClass="lsy-button lsy-bg-c-warning p-ml-3"
+						onclick="PF('lsy-table').clearFilters()"
+						update="@(.lsy-table), @(.lsy-alert})" />
+					<p:commandButton value="#{category.crud.messageDeleteCrud}"
+						icon="pi pi-trash" actionListener="#{category.removeAll()}"
+						styleClass="lsy-button lsy-bg-c-danger p-ml-3"
+						disabled="#{fn:length(category.crud.listSelect) gt 0 ? 'false' : 'true'}"
+						update="@(.lsy-table), @(.lsy-alert})">
+						<p:confirm header="Confirmación:"
+							message="¿Quieres eliminar #{fn:length(category.crud.listSelect)} categorias?"
+							icon="pi pi-exclamation-triangle" />
+					</p:commandButton>
+				</h:panelGroup>
+				<p:separator styleClass="p-mb-4" />
+			</h:panelGroup>
+			<p:dataTable id="lsy-table" widgetVar="lsy-table" var="a"
+				value="#{table.categoryEntity}" styleClass="lsy-table"
+				emptyMessage="No se encontro ninguna categoria." rowKey="#{a.id}"
+				rowSelectMode="add" paginator="true" rows="20" scrollable="true"
+				scrollWidth="auto"
+				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} 
+							   	   {PreviousPageLink}    {CurrentPageReport} 
+							       {NextPageLink}        {LastPageLink}"
+				selection="#{category.crud.listSelect}"
+				filterBy="#{table.categoryTable.filterBy}"
+				filteredValue="#{table.categoryTable.filterValue}"
+				rowsPerPageTemplate="5,10,15,20,50,100">
+
+				<f:facet name="header">
+					<p:outputPanel layout="block"
+						styleClass="p-d-flex p-jc-end p-ac-center">
+						<h:outputText value="Buscar:" styleClass="p-mt-1 p-mr-2" />
+						<p:inputText id="globalFilter" onkeyup="PF('lsy-table').filter()" />
+					</p:outputPanel>
+					<p:outputPanel layout="block"
+						styleClass="p-d-flex p-jc-center p-ac-center p-p-3">
+						<h:outputLabel value="Categoria " />
+						<h:outputLabel class="p-as-end"
+							value="(#{fn:length(table.categoryEntity)} resultados)." />
+					</p:outputPanel>
+				</f:facet>
+
+				<p:ajax event="rowSelect" update="@(.lsy-table), @(.lsy-table-actions-top)" />
+				<p:ajax event="rowUnselect" update="@(.lsy-table), @(.lsy-table-actions-top)" />
+				<p:ajax event="rowSelectCheckbox" update="@(.lsy-table), @(.lsy-table-actions-top)" />
+				<p:ajax event="rowUnselectCheckbox" update="@(.lsy-table), @(.lsy-table-actions-top)" />
+				<p:ajax event="toggleSelect" update="@(.lsy-table), @(.lsy-table-actions-top)" />
+
+				<!-- COLUMN -->
+				<p:column selectionMode="multiple" exportable="false"
+					style="width:40px">
+				</p:column>
+				<p:column headerText="ID" footerText="ID" styleClass="p-text-center"
+					filterBy="#{a.id}" sortBy="#{a.id}">
+					<h:outputText value="#{a.id}" />
+				</p:column>
+				<p:column headerText="Nombre" footerText="Nombre"
+					styleClass="p-text-center" filterBy="#{a.name}" sortBy="#{a.name}">
+					<h:outputText value="#{a.name}" />
+				</p:column>
+				<p:column headerText="Fecha" footerText="Fecha"
+					field="dateWithoutTime" styleClass="p-text-center"
+					filterMatchMode="range">
+					<f:facet name="filter">
+						<p:datePicker selectionMode="range"
+							onchange="PF('.lsy-table').filter()" />
+					</f:facet>
+					<p:calendar value="#{a.dateRegister}" locale="de"
+						pattern="dd/MM/yyyy hh:mm:ss" disabled="true" />
+				</p:column>
+				<p:column headerText="Estado" footerText="Estado"
+					styleClass="p-text-center" field="statu" filterMatchMode="exact">
+					<f:facet name="filter">
+						<p:selectOneMenu onchange="PF('lsy-table').filter()">
+							<f:selectItem itemLabel="Todos" itemValue="#{null}"
+								noSelectionOption="true" />
+							<f:selectItem itemLabel="Activo" itemValue="true" />
+							<f:selectItem itemLabel="Bloqueado" itemValue="false" />
+						</p:selectOneMenu>
+					</f:facet>
+					<p:commandButton value="#{a.statu ? 'Activo' : 'Bloqueado'}"
+						styleClass="lsy-button
+						#{a.statu ? 'lsy-bg-c-success' :  'lsy-bg-c-danger'}"
+						action="#{category.update(a.id)}"
+						update="lsy-table, @(.lsy-alert)">
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:panelGroup>
+	</ui:define>
+	<ui:define name="tmp-component-dialog">
+		<ui:decorate template="component/dialog.xhtml" />
+	</ui:define>
+</ui:composition>

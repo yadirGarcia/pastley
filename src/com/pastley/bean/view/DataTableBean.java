@@ -8,6 +8,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.json.simple.JSONObject;
+
 import com.oastley.controller.RequestController;
 import com.pastley.models.dto.DataTableDTO;
 import com.pastley.models.dto.ExceptionDTO;
@@ -26,13 +28,13 @@ public class DataTableBean implements Serializable{
 	private DataTableDTO<MethodPay> methodPay;
 	
 	/* Product Service */
-	private DataTableDTO<Category> category;
+	private DataTableDTO<Category> categoryTable;
 	private DataTableDTO<Product>  productTable;
 	
 	@PostConstruct
 	public void init() {
 		this.methodPay = new DataTableDTO<>();
-		this.category = new DataTableDTO<>();
+		this.categoryTable = new DataTableDTO<>();
 		this.productTable = new DataTableDTO<>();
 	}	
 	
@@ -43,7 +45,7 @@ public class DataTableBean implements Serializable{
 	
 	public void initCategory() {
 		if(isCategory())
-			category.setRenderizar(0);	
+			categoryTable.setRenderizar(0);	
 	}
 	
 	public void initProduct() {
@@ -56,7 +58,7 @@ public class DataTableBean implements Serializable{
 	}
 	
 	public boolean isCategory() {
-		return category != null;
+		return categoryTable != null;
 	}
 	
 	public boolean isProduct() {
@@ -81,25 +83,33 @@ public class DataTableBean implements Serializable{
 	public List<Category> getCategoryEntity(){
 		if(!isCategory())
 			return new ArrayList<>();
-		if(category.getRenderizar() == 0) {
+		if(categoryTable.getRenderizar() == 0) {
 			try {
-				RequestController<List<Category>> request = new RequestController<>();
-				category.setEntity(request.get(PastleyVariable.PASTLEY_API_MICROSERVICE_PRODUCT_SERVICE_CATEGORY, null));
-				category.setRenderizar(1);
+				RequestController<List<JSONObject>> request = new RequestController<>();
+				List<JSONObject> list = request.get(PastleyVariable.PASTLEY_API_MICROSERVICE_PRODUCT_SERVICE_CATEGORY, null);
+				categoryTable.setEntity(new ArrayList<>());
+				for(JSONObject object: list) {
+					categoryTable.getEntity().add(new Category(object));
+				}
+				categoryTable.setRenderizar(1);
 			}catch (ExceptionDTO e) {
-				category.setEntity(new ArrayList<>());
+				categoryTable.setEntity(new ArrayList<>());
 			}
 		}
-		return category.getEntity();
+		return categoryTable.getEntity();
 	}
 	
 	public List<Product> getProductEntity(){
 		if(!isProduct())
 			return new ArrayList<>();
-		if(category.getRenderizar() == 0) {
+		if(productTable.getRenderizar() == 0) {
 			try {
-				RequestController<List<Product>> request = new RequestController<>();
-				productTable.setEntity(request.get(PastleyVariable.PASTLEY_API_MICROSERVICE_PRODUCT_SERVICE_PRODUCT, null));
+				RequestController<List<JSONObject>> request = new RequestController<>();
+				List<JSONObject> list = request.get(PastleyVariable.PASTLEY_API_MICROSERVICE_PRODUCT_SERVICE_PRODUCT, null);
+				productTable.setEntity(new ArrayList<>());
+				for(JSONObject object: list) {
+					productTable.getEntity().add(new Product(object));
+				}
 				productTable.setRenderizar(1);
 			}catch (ExceptionDTO e) {
 				productTable.setEntity(new ArrayList<>());
@@ -115,13 +125,13 @@ public class DataTableBean implements Serializable{
 	public void setMethodPay(DataTableDTO<MethodPay> methodPay) {
 		this.methodPay = methodPay;
 	}
-	
-	public DataTableDTO<Category> getCategory() {
-		return category;
+
+	public DataTableDTO<Category> getCategoryTable() {
+		return categoryTable;
 	}
 
-	public void setCategory(DataTableDTO<Category> category) {
-		this.category = category;
+	public void setCategoryTable(DataTableDTO<Category> categoryTable) {
+		this.categoryTable = categoryTable;
 	}
 
 	public DataTableDTO<Product> getProductTable() {

@@ -11,19 +11,26 @@ public class DataTableDTO<A> extends StatuDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private List<A> entity;
+	private List<A> entityCopy;
 	private List<A> select;
 	private List<A> filter;
+	private List<FilterMeta> filterValue;
 	private List<FilterMeta> filterBy;
 	
 	public DataTableDTO() {
-		this(null);
+		this(new ArrayList<>());
 	}
 	
 	public DataTableDTO(List<A> entity) {
 		this.entity = entity;
-		this.filter = new ArrayList<>();
-		initStatu();
+		this.entityCopy = entity;
+		initTable();
 	}
+	
+	public void initTable(){
+		filter = new ArrayList<>();
+		initStatu();
+	}	
 
 	public List<A> getEntity() {
 		return entity;
@@ -41,12 +48,28 @@ public class DataTableDTO<A> extends StatuDTO implements Serializable {
 		this.select = select;
 	}
 
+	public List<A> getEntityCopy() {
+		return entityCopy;
+	}
+
+	public void setEntityCopy(List<A> entityCopy) {
+		this.entityCopy = entityCopy;
+	}
+
 	public List<A> getFilter() {
 		return filter;
 	}
 
 	public void setFilter(List<A> filter) {
 		this.filter = filter;
+	}
+
+	public List<FilterMeta> getFilterValue() {
+		return filterValue;
+	}
+
+	public void setFilterValue(List<FilterMeta> filterValue) {
+		this.filterValue = filterValue;
 	}
 
 	public List<FilterMeta> getFilterBy() {

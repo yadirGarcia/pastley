@@ -69,6 +69,8 @@ public class RequestController<A> implements Serializable {
 				String response = streamString(http.getErrorStream());
 				if(!PastleyValidate.isChain(response)) 
 					return null;
+				JSONObject object= (JSONObject) parser.parse(response);
+				System.out.println(object);
 				throw new ExceptionDTO((JSONObject) parser.parse(response)); 
 			}
 		}catch (Exception e) {
